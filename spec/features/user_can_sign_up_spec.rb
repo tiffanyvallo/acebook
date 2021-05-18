@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Registration", type: :feature do
   scenario "Can sign up as a user" do
+
     visit "/"
     click_button "Sign Up"
     fill_in "Name", with: "John Doe"
@@ -12,6 +13,7 @@ RSpec.feature "Registration", type: :feature do
     click_button "Create Account"
 
     expect(current_path).to_eq("/")
-    expect(page).to have_content("Success: New Account Created") #flash message 
+    expect(page).to have_content("Success: New Account Created") #flash message on index page
+    expect(User.all.first.name).to to_eq("John Doe")
   end
 end
