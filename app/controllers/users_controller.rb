@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
   def signup
-    # @user = User.create
+    @user = User.create
   end
 end

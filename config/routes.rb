@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get '/signup', to: "users#signup"
+  root "users#index"
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :posts
+  # resources :posts
+  resources :users
 end
