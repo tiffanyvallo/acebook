@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    redirect_to "/"
+    redirect_to "/", notice: "Success: New Account Created"
   end
 
   private
