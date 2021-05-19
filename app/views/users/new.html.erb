@@ -1,4 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acebook</title>
+</head>
+<body>
+
 <h1>Sign Up </h1>
+<<<<<<< HEAD
 <%= form_for @user do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name %>
@@ -14,4 +25,19 @@
 
   <%= form.submit "Submit" %>
 <% end %>
+=======
+<form action="/users/new" method="post">
+    <label>Name:</label><input type="text" name="name" placeholder="Enter name" required>
+  <label>Date of Birth:</label><input type="date" name="dob" placeholder="Enter name" required> 
+  <label>Email:</label><input type="email" name="email" placeholder="Enter email" required>
+  <label>Password:</label><input type="password" name="password" placeholder="choose password" required>
+  <label>Confirm password:</label><input type="password" name="password" placeholder="confirm password" required>
+  <input type="submit" value="Create Account" />
+</form>
+  
+</body>
+</html>
+
+
+>>>>>>> 2d3f252cc4f0de4c1705c0c321793a96a0cced00
 
