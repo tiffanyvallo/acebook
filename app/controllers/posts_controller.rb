@@ -1,4 +1,8 @@
 class PostsController < ApplicationController
+  def index
+    @posts = Post.all
+  end
+  
   def new
     @post = Post.new
   end
@@ -8,8 +12,11 @@ class PostsController < ApplicationController
     redirect_to posts_url
   end
 
-  def index
-    @posts = Post.all
+  def like
+    @post = Post.find(params[:post_id])
+    @post.likes += 1
+    @post.save!
+    redirect_to posts_url
   end
 
   private
