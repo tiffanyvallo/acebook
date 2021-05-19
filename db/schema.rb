@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_05_18_140604) do
 
+# ActiveRecord::Schema.define(version: 2021_05_18_145235) do downstream version TO DELETE?
+
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +22,7 @@ ActiveRecord::Schema.define(version: 2021_05_18_140604) do
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "likes", default: 0
   end
 
   create_table "users", force: :cascade do |t|
