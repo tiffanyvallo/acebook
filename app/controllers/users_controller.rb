@@ -1,5 +1,17 @@
 class UsersController < ApplicationController
-  def signup
-    @user = User.create
+  
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.create(user_params)
+    redirect_to "/"
+  end
+
+  private
+  
+  def user_params
+    params.require(:user).permit(:name, :dob, :email, :password)
   end
 end

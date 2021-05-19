@@ -1,10 +1,17 @@
 <h1>Sign Up </h1>
-<form action="/users/new" method="post">
-    <label>Name:</label><input type="text" name="name" placeholder="Enter name" required>
-  <label>Date of Birth:</label><input type="date" name="dob" placeholder="Enter name" required> 
-  <label>Email:</label><input type="email" name="email" placeholder="Enter email" required>
-  <label>Password:</label><input type="password" name="password" placeholder="choose password" required>
-  <label>Confirm password:</label><input type="password" name="password" placeholder="confirm password" required>
-  <input type="submit" value="Create Account" />
-</form>
+<%= form_for @user do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :dob %>
+  <%= form.date_field :dob %>
+  <%= form.label :email %>
+  <%= form.email_field :email %>
+  <%= form.label :password %>
+  <%= form.password_field :password %>
+  <%= form.label :confirm_password %>
+  <%= form.password_field :confirm_password %>
+  
+
+  <%= form.submit "Submit" %>
+<% end %>
 
