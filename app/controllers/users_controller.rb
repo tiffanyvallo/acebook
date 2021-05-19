@@ -5,8 +5,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
-    redirect_to "/", notice: "Success: New Account Created"
+    if check_db
+      redirect_to "/users/new", alert: "Error: This email is already in use"
+      
+    else
+      @user = User.create(user_params)
+      redirect_to "/", notice: "Success: New Account Created"
+    end
   end
 
   private
@@ -16,12 +21,13 @@ class UsersController < ApplicationController
   end
 
   def check_db
-    # if User.exists?(email: params[:user][:email]) == false
-    #   redirect_to "/", notice: "Success: New account created"
-    # else
-    #   notice: "Error: This email is already in use"
+    if User.exists?(email: params[:user][:email])
+      true
+    else
+      false
+    end
     # use rails exist method to check if user already in database and prevent multiple account creation - raise flash error message,
-    # end
+  
   end
 
   

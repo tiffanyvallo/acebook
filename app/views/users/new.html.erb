@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +11,14 @@
 <body>
 
 <h1>Sign Up </h1>
+<h1>
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %> 
+</h1>
+
 <%= form_for @user do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name %>
@@ -24,4 +34,3 @@
 
   <%= form.submit "Create Account" %>
 <% end %>
-
