@@ -1,4 +1,8 @@
 
+<%= link_to new_post_path do %>
+  New post
+<% end %>
+          
 <% @posts.reverse.each do |post| %>
   <form action='/posts/<%= post.id %>/like'>
     <%= post.message %>, <%= post.likes %> like<%= 's' if post.likes != 1 %>
@@ -6,6 +10,8 @@
   </form> <br>
 <% end %>
 
-<%= link_to new_post_path do %>
-  New post
-<% end %>
+
+
+
+
+
