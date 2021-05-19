@@ -1,4 +1,5 @@
-<% @posts.each do |post| %>
+
+<% @posts.reverse.each do |post| %>
   <form action='/posts/<%= post.id %>/like'>
     <%= post.message %>, <%= post.likes %> like<%= 's' if post.likes != 1 %>
     <input type='submit' value="❤️">
