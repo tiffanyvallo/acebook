@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe PostsController, type: :controller do
+RSpec.describe UsersController, type: :controller do
   describe "GET /new " do
     it "responds with 200" do
       get :new
@@ -10,13 +10,13 @@ RSpec.describe PostsController, type: :controller do
 
   describe "POST /" do
     it "responds with 200" do
-      post :create, params: { post: { message: "Hello, world!" } }
-      expect(response).to redirect_to(posts_url)
+      post :create, params: { user: { name: "John Doe", dob: 1991-01-01, email: "jdoe@email.com", password: "password" } }
+      expect(response).to redirect_to("/")
     end
 
-    it "creates a post" do
-      post :create, params: { post: { message: "Hello, world!" } }
-      expect(Post.find_by(message: "Hello, world!")).to be
+    it "creates a user" do
+      post :create, params: { user: { name: "John Doe", dob: 1991-01-01, email: "jdoe@email.com", password: "password" } }
+      expect(User.find_by(name: "John Doe")).to be
     end
   end
 
