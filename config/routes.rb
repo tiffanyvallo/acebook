@@ -6,6 +6,12 @@ Rails.application.routes.draw do
     post '/users', to: 'users#index'
   end
 
+  resources :sessions do
+    get 'login' => 'sessions#new'
+    post 'login' => 'sessions#create'
+    delete 'logout' => 'sessions#destroy'
+  end
+
   resources :posts do
     get '/like', to: 'posts#like'
   end

@@ -20,7 +20,7 @@ RSpec.describe UsersController, type: :controller do
     end
 
     describe "POST /" do
-      it "responds with 200" do
+      it "responds with 302" do
         post :create, params: { user: { name: "John Doe", dob: 1991-01-01, email: "jdoe@email.com", password: "password", password_confirmation: "password" } }
         expect(response).to redirect_to("/")
       end

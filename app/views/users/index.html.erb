@@ -16,15 +16,22 @@
 <% end %>
 
 <h1>Welcome to Acebook</h1>
+<div>
+    <%= form_for(:session, url: login_path) do |f| %>
 
-<%= form_with model: @user do |form| %>
-  <%= form.label :email %>
-  <%= form.email_field :email %>
-  <%= form.label :password %>
-  <%= form.password_field :password %>
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
 
-  <%= form.submit "Login" %>
-<% end %>
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.submit "Login", class: "btn btn-primary" %>
+    <% end %>
+</div>
+<div>
+  <%= link_to "Sign out", signout_path, method: "delete" %>
+</div> 
+
   <br>
 <form action="/users/new" method="get">
     <button type="submit">Sign Up</button>
