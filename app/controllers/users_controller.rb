@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     else
       session[:user_id]=@user.id
       flash[:notice] = "Success: New Account Created"
-      redirect_to "/"
+      redirect_to root_path
     end
 
   end
