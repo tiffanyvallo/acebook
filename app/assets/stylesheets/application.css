@@ -13,13 +13,20 @@
  *= require_tree .
  *= require_self
  */
-body {
+body.light {
 
   background-color: #f0f2f5;
   color: #1c1e21;
   font-family: helvetica, sans-serif; 
   text-align: left;
 
+}
+
+body.dark {
+  background-color: #0f0946;
+  color: #ffffff;
+  font-family: helvetica, sans-serif; 
+  text-align: left;
 }
 
 .posts {
@@ -51,4 +58,34 @@ body {
 
 .titlebar {
   background-color: white;
+}
+
+.dark_mode {
+  width: 80px;
+  height:50px;
+  background-color: #f0f2f5;
+  border: 30px;
+  border-radius: 20%;
+  right: 60px;
+  transition-duration: 1s;
+}
+
+.dark_mode:hover {
+  background-color: #5f6dec;
+  color: white;
+}
+
+.light_mode {
+  width: 80px;
+  height:50px;
+  background-color: #81828d;
+  border: 30px;
+  border-radius: 20%;
+  right: 60px;
+  transition-duration: 1s;
+}
+
+.light_mode:hover {
+  background-color: #f0f2f5;
+  color: white;
 }
