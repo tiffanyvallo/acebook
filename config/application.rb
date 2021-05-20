@@ -5,7 +5,7 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-config.assets.paths << Rails.root.join("app", "assets", "images")
+# config.assets.paths << Rails.root.join("app", "assets", "images")
 
 module Acebook
   class Application < Rails::Application
