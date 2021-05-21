@@ -2,6 +2,10 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
   end
+
+  def show
+    redirect_to posts_url
+  end
   
   def new
     @post = Post.new
