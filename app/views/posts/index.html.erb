@@ -1,17 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+
+<ul>
+  <li><%= link_to "Profile", current_user %>
+  <li><%= link_to "Log out", 'logout', method: :delete %>
+</ul>
+  
 
 <%= link_to new_post_path do %>
   New post
 <% end %>
           
 <% @posts.reverse.each do |post| %>
+
   <form action='/posts/<%= post.id %>/like'>
     <%= post.message %>, <%= post.likes %> like<%= 's' if post.likes != 1 %>
     <input type='submit' value="❤️">
   </form> <br>
 <% end %>
 
-
-
-
-
+</body>
+</html>
 

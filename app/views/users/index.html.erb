@@ -16,12 +16,21 @@
 <% end %>
 
 <h1>Welcome to Acebook</h1>
+<div>
+    <%= form_for(:session, url: 'login' ) do |f| %>
 
-<form action="/users" method="post">
-  <input type="email" name="email" />
-  <input type="password" name="password" />
-  <input type="submit" value="Login" />
-</form>
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.submit "Login", class: "btn btn-primary" %>
+    <% end %>
+</div>
+
+
+  <br>
 <form action="/users/new" method="get">
     <button type="submit">Sign Up</button>
 </form>
