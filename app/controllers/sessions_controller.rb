@@ -9,19 +9,10 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
     log_in user
-    redirect_to '/posts' ### ROUTE IS NOT WORKING
+    redirect_to '/posts', notice: "Welcome, #{user.name}"
     else
-      flash.now[:danger] = 'Invalid email/password combination'
-      render '/'
+      redirect_to '/', notice: "Invalid email/password combination"
     end
-    
-    #   log_in user
-    #   redirect_to "/posts"
-    # else
-    #  
-    #   render 'index'
-    # end
-
   end
 
   def destroy

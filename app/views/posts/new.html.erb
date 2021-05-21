@@ -7,8 +7,11 @@
   <title>Document</title>
 </head>
 <body>
-  
-<%= link_to "Log out", 'logout', method: :delete %>
+
+<ul>
+  <li><%= link_to "Profile", current_user %>
+  <li><%= link_to "Log out", 'logout', method: :delete %>
+</ul>
 
   <%= form_for @post do |form| %>
     <%= form.label :message %>

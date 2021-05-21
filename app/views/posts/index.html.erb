@@ -8,13 +8,16 @@
 </head>
 <body>
 
-<div>
 <% flash.each do |type, msg| %>
-  <div class="alert alert-<%= type %>"><%= msg %></div>
+  <div>
+    <%= msg %>
+  </div>
 <% end %>
-</div>
 
-<%= link_to "Log out", 'logout', method: :delete %>
+<ul>
+  <li><%= link_to "Profile", current_user %>
+  <li><%= link_to "Log out", 'logout', method: :delete %>
+</ul>
   
   <% @posts.reverse.each do |post| %>
   <form action='/posts/<%= post.id %>/like'>
