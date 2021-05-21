@@ -6,12 +6,15 @@
 <% @posts.reverse.each do |post| %>
   <form action='/posts/<%= post.id %>/like'>
     <%= post.message %>, <%= post.likes %> like<%= 's' if post.likes != 1 %>
-    <input type='submit' value="❤️">
+    <input type='submit' value="❤️"> <br>
+    <form>
+      <input type='text' name='Comment'>
+      <input type='submit' value='Add comment'>
+    </form>
+
+    <!-- <p class="font-weight-bold">Comments</p>
+    <%= text_area :body, value: 'Comment' %> -->
   </form> <br>
+  <!--<button type="submit">Post</button>-->
+
 <% end %>
-
-
-
-
-
-
