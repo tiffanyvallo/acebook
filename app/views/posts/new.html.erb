@@ -1,3 +1,20 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+<ul>
+  <li><%= link_to "Profile", current_user %>
+  <li><%= link_to "Log out", 'logout', method: :delete %>
+</ul>
 <%= form_for @post do |form| %>
   <%= form.label :message %>
   <%= form.text_field :message %>
@@ -12,7 +29,15 @@
   <%= form.file_field :photo3 %>
   
   <%= form.label :photo %>
-  <%= form.file_field :photo4 %>
+  <%= form.file_field :photo4 %>  <%= form_for @post do |form| %>
+    <%= form.label :message %>
+    <%= form.text_field :message %>
 
-  <%= form.submit "Submit" %>
-<% end %>
+    <%= form.submit "Submit" %>
+  <% end %>
+
+</body>
+</html>
+
+
+

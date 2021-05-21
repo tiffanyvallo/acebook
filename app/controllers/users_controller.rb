@@ -1,42 +1,60 @@
 class UsersController < ApplicationController
-  
+
+  def show
+    @user = User.find(params[:id])
+    # Nav bar will need user profile link in this html
+  end
+
   def new
     @user = User.new
+    @errors = flash[:errors]
   end
 
   def create
-    if check_db
-      redirect_to "/users/new", alert: "Error: This email is already in use"
-      
+    @user = User.new(user_params)
+    if @user.save
+      flash[:success] = "Success: New Account Created"
+      redirect_to "/"
     else
-      @user = User.create(user_params)
-      redirect_to "/", notice: "Success: New Account Created"
+      render 'new'
     end
-  end
 
+
+  #  @user = User.create(user_params)
+  #   if @user.errors.present?
+  #     flash[:errors] = "Error: This email is already in use"
+  #     redirect_to "/users/new"
+  #   else
+  #     session[:user_id]=@user.id
+  #     flash[:notice] = "Success: New Account Created"
+  #     redirect_to root_path
+  #   end
+
+  end
+  
   private
   
-  def user_params
-    params.require(:user).permit(:name, :dob, :email, :password)
-  end
-
-  def check_db
-    if User.exists?(email: params[:user][:email])
-      true
-    else
-      false
+    def user_params
+      params.require(:user).permit(:name, :dob, :email, :password, :password_confirmation)
     end
-    # use rails exist method to check if user already in database and prevent multiple account creation - raise flash error message,
-  
-  end
 
-  
-  def notice
+    def check_db
+      if User.exists?(email: params[:user][:email])
+        true
+      else
+        false
+      end
+      # can refactor code to remove conditional (implicit return - keep only User.exists?(email: params[:user][:email]))
+    
+    end
 
-  end
+    
+    def notice
 
-  # def alert
+    end
 
-  # end
+    # def alert
+
+    # end
 
 end
