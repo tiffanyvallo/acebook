@@ -5,7 +5,11 @@
           
 <% @posts.reverse.each do |post| %>
   <form action='/posts/<%= post.id %>/like'>
-    <%= post.message %>, <%= post.likes %> like<%= 's' if post.likes != 1 %>
+    <%= post.message %>, 
+    <% if post.photo.attached? %>
+      <image src="<%=(url_for(post.photo))%>" %>
+    <% end %>
+    <%= post.likes %> like<%= 's' if post.likes != 1 %>
     <input type='submit' value="❤️">
   </form> <br>
 <% end %>
