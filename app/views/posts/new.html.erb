@@ -8,7 +8,7 @@
 </head>
 <body>
   
-<%= link_to "Log out", logout_path, method: :delete %>
+<%= link_to "Log out", 'logout', method: :delete %>
 
   <%= form_for @post do |form| %>
     <%= form.label :message %>

@@ -14,8 +14,8 @@ RSpec.feature "Sign In", type: :feature do
     click_button "Create Account"
     #---------------------
 
-    fill_in "email", with: "jdoe@email.com"
-    fill_in "password", with: "password"
+    fill_in "Email", with: "jdoe@email.com"
+    fill_in "Password", with: "password"
     click_button "Login"
 
     expect(page).to have_current_path("/posts")
@@ -34,8 +34,8 @@ RSpec.feature "Sign In", type: :feature do
     click_button "Create Account"
     #---------------------
 
-    fill_in "email", with: "jdoe@email.com"
-    fill_in "password", with: "password1"
+    fill_in "Email", with: "jdoe@email.com"
+    fill_in "Password", with: "password1"
     click_button "Login"
 
     expect(page).to have_content("Invalid email/password combination")
