@@ -11,26 +11,28 @@
 <body>
 
 <h1>Sign Up </h1>
-<h1>
-<% flash.each do |type, msg| %>
-  <div>
-    <%= msg %>
-  </div>
-<% end %> 
-</h1>
 
+<div>
+<% flash.each do |type, msg| %>
+  <div class="alert alert-<%= type %>"><%= msg %></div>
+<% end %>
+</div>
+
+<div>
 <%= form_for @user do |form| %>
+  <%= render 'shared/error_messages' %>
+
   <%= form.label :name %>
-  <%= form.text_field :name %>
+  <%= form.text_field :name, class: 'form-control'%>
   <%= form.label :dob %>
   <%= form.date_field :dob %>
   <%= form.label :email %>
-  <%= form.email_field :email %>
+  <%= form.email_field :email, class: 'form-control'%>
   <%= form.label :password %>
-  <%= form.password_field :password %>
+  <%= form.password_field :password, class: 'form-control'%>
   <%= form.label :password_confirmation %>
-  <%= form.password_field :password_confirmation %>
-  
+  <%= form.password_field :password_confirmation, class: 'form-control'%>
 
   <%= form.submit "Create Account" %>
 <% end %>
+ </div> 
