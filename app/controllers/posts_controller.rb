@@ -3,6 +3,10 @@ class PostsController < ApplicationController
     @posts = Post.all
     @users = User.all
   end
+
+  def show
+    redirect_to posts_url
+  end
   
   def new
     @post = Post.new

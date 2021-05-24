@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   
   resources :posts do
     get '/like', to: 'posts#like'
+    resources :comments
   end
 
 end
