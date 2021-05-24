@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2021_05_24_160811) do
 
   # These are extensions that must be enabled in order to support this database
@@ -76,7 +75,5 @@ ActiveRecord::Schema.define(version: 2021_05_24_160811) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "posts"
-# check below line when migrating - may be implemented twice ("posts")
   add_foreign_key "posts", "users"
-
 end
