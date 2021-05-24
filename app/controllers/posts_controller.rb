@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    p post_params
+    p post_params["image"]
     @post = Post.create(post_params)
     redirect_to posts_url
   end
@@ -20,9 +20,24 @@ class PostsController < ApplicationController
     redirect_to posts_url
   end
 
+  # def update
+  #   @post = Post.find(params[:post_id])
+  #   @post.image <<
+  #   redirect_to posts_url
+  #   # respond_to do |format|
+  #   #   if @post.update(post_params)
+  #   #     format.html { redirect_to @post, notice: "Post was successfully updated." }
+  #   #     format.json { render :show, status: :ok, location: @post }
+  #   #   else
+  #   #     format.html { render :edit, status: :unprocessable_entity }
+  #   #     format.json { render json: @post.errors, status: :unprocessable_entity }
+  #   #   end
+  #   # end
+  # end
+
   private
 
   def post_params
-    params.require(:post).permit(:message, :photo1, :photo2, :photo3, :photo4)
+    params.require(:post).permit(:message, image: [])
   end
 end
