@@ -27,8 +27,10 @@
 </br>
 <% @posts.reverse.each do |post| %>
 </br>
-<%= post.user_id %> 
 
+<% @users.each do |user| %> 
+  <%= user.name if user.id == post.user_id %> 
+  <% end %>
   <form action='/posts/<%= post.id %>/like'>
     <%= post.message %>, 
     <% if post.photo1.attached? %>
