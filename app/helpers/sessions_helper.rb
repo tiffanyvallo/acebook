@@ -17,14 +17,8 @@ module SessionsHelper
   end
 
   def log_out
-    p "COOKIES REACH LOG OUT METHOD"
-    p cookies[:remember_token]
-    p current_user
     cookies.delete(:remember_token)
     @current_user = nil
-    p "COOKIES REACH LOG OUT METHOD AFTER DELETE AND RESET SESSION"
-    p cookies[:remember_token]
-    p current_user
   end
 
 end

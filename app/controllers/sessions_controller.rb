@@ -24,23 +24,9 @@ class SessionsController < ApplicationController
 
 
   def destroy
-    p "INSIDE DESTROY METHOD"
-    p "cookies- remeber token" 
-    p cookies[:remember_token]
-    p "current user"
-    p current_user
-    p "session"
-    p session
     log_out
     session[:user_id] = nil
     redirect_to "/login", notice: "Logged out"
-    p "INSIDE DESTROY METHOD AFTER LOGOUT METHOD AND REDIRECT"
-    p "cookies rember token" 
-    p cookies[:remember_token]
-    p "current user" 
-    p current_user
-    p "session"
-    p session
   end
 
   
