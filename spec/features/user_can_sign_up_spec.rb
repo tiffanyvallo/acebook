@@ -12,7 +12,7 @@ RSpec.feature "Registration", type: :feature do
     fill_in "Password confirmation", with: "password"
     click_button "Create Account"
 
-    expect(page).to have_current_path(root_path)
+    expect(page).to have_current_path('/login')
     expect(page).to have_content("Success: New Account Created")
     expect(page).to have_content("Welcome to Acebook")
   end

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :require_login, only: [:new, :create]
 
   def show
     @user = User.find(params[:id])
@@ -14,7 +15,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "Success: New Account Created"
-      redirect_to "login"
+      redirect_to "/login"
     else
       render 'new'
     end
