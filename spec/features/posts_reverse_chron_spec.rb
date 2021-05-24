@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "posts appear in reverse chronologically order", type: :feature do
-  scenario "Posts appear in reverse chronologically order" do
+RSpec.feature "posts appear in reverse chronological order", type: :feature do
+  scenario "Posts appear in reverse chronological order" do
     visit "/posts"
     click_link "New post"
     fill_in "Message", with: "Hello, world!"

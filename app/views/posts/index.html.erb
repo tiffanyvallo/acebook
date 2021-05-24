@@ -24,8 +24,10 @@
 <%= link_to new_post_path do %>
   New post
 <% end %>
-          
+</br>
 <% @posts.reverse.each do |post| %>
+</br>
+<%= post.user_id %> 
 
   <form action='/posts/<%= post.id %>/like'>
     <%= post.message %>, 
