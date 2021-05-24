@@ -18,24 +18,17 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
+  end
 
-
-  #  @user = User.create(user_params)
-  #   if @user.errors.present?
-  #     flash[:errors] = "Error: This email is already in use"
-  #     redirect_to "/users/new"
-  #   else
-  #     session[:user_id]=@user.id
-  #     flash[:notice] = "Success: New Account Created"
-  #     redirect_to root_path
-  #   end
-
+  def update
+    current_user.update(user_params)
+    redirect_to current_user
   end
   
   private
   
     def user_params
-      params.require(:user).permit(:name, :dob, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :dob, :email, :password, :password_confirmation, :avatar)
     end
 
     def check_db
