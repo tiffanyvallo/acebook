@@ -15,13 +15,13 @@ RSpec.feature "posts appear in reverse chronologically order", type: :feature do
   end
 
 
-  scenario "user can upload one picture per post" do
-    visit "/posts"
-    click_link "New post"
-    fill_in "Message", with: "Hello, world!"
-    attach_file("Photo", Rails.root + "spec/fixtures/hello_world.png")
-    click_button "Submit"
+  # scenario "user can upload one picture per post" do
+  #   visit "/posts"
+  #   click_link "New post"
+  #   fill_in "Message", with: "Hello, world!"
+  #   attach_file("Photo", Rails.root + "spec/fixtures/hello_world.png")
+  #   click_button "Submit"
     
-    expect(page).to have_css("img[src*='hello_world.png']")
-  end
+  #   expect(page).to have_css("img[src*='hello_world.png']")
+  # end
 end
