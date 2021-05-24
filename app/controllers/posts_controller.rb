@@ -10,14 +10,14 @@ class PostsController < ApplicationController
   def create
     p post_params
     @post = Post.create(post_params)
-    redirect_to posts_url
+    redirect_to posts_url #change to root 
   end
 
   def like
     @post = Post.find(params[:post_id])
     @post.likes += 1
     @post.save!
-    redirect_to posts_url
+    redirect_to posts_url #change to root 
   end
 
   private

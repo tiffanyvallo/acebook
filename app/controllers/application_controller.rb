@@ -2,13 +2,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
 
+  before_action :require_login
+  before_action :set_theme
+
   def handle_unverified_request
     log_out
     super
   end
 
 
-  before_action :set_theme
+  
 
   def set_theme
     if params[:theme].present?
@@ -18,4 +21,13 @@ class ApplicationController < ActionController::Base
       redirect_to(request.referrer || root_path)
     end
   end
+
+  private
+
+    def require_login
+      unless logged_in?
+        flash[:error] = "Access denied: you must be logged in"
+        redirect_to login_url # halts request cycle
+      end
+    end
 end
