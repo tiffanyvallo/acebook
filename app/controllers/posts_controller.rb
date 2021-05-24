@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
+    @users = User.all
   end
 
   def show
@@ -12,7 +13,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(post_params)
+    @post = Post.create(post_params.merge(user_id: current_user.id))
     redirect_to posts_url
   end
 
@@ -26,6 +27,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:message)
+    params.require(:post).permit(:message, :photo1, :photo2, :photo3, :photo4)
   end
 end
