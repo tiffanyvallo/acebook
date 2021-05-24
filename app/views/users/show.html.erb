@@ -16,7 +16,11 @@
 
 <% provide(:title, @user.name) %>
 <h1>
-  <%= gravatar_for @user %>
+  <% if @user.avatar.attached? %>
+    <image src="<%=(url_for(@user.avatar))%>" %>
+  <% else %>
+    <%= gravatar_for @user %>
+  <% end %>
   <%= @user.name %>
 </h1>
 
