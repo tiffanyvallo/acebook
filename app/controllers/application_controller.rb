@@ -25,7 +25,9 @@ class ApplicationController < ActionController::Base
   private
 
     def require_login
+      p 'INSIDE REQUIRE_LOGIIN METHOD!!!!!'
       unless logged_in?
+        p 'INSIDE UNLESS STATEMENT!!!!!!!'
         flash[:error] = "Access denied: you must be logged in"
         redirect_to login_url # halts request cycle
       end

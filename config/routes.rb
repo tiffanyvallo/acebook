@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root "posts#index"
-
+  
+  resources :sessions
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy' #log out link works on posts page but not profile page (users#show')
