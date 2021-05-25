@@ -44,40 +44,47 @@
       <% if false %>
       <%= link_to 'Edit', edit_post_path(post) %>
       <% end %>
-    </form> <br>
-  </div>
+    </form> 
+    <br>
+
+    <div class="likes-<%= cookies[:theme] %>">    
+      <% @users.each do |user| %> 
     
-<% @users.each do |user| %> 
-  <%= user.name if user.id == post.user_id %> 
-  <% end %>
-  <form action='/posts/<%= post.id %>/like'>
-    <%= post.message %>, <%= post.likes %> like<%= 's' if post.likes != 1 %>
-    <input type='submit' value="❤️"> <br>
-  </form>
-    <br>
-    <h2> <%= post.comments.count %> Comments</h2>
-
-      <% post.comments.each do |comment| %>
-        <%= "#{comment.body} 📣#{comment.name} #{time_ago_in_words(comment.created_at)} #{"ago"}" %> <br>
+        <%= user.name if user.id == post.user_id %> 
+        <% end %>
+        <form action='/posts/<%= post.id %>/like'>
+          
+          <input type='submit' value="❤️"> 
+        </form>
+        
+        <h4> <%= post.likes %> like<%= 's' if post.likes != 1 %> <%= post.comments.count %> Comments </h4>
+    
+          <% post.comments.each do |comment| %>
+            <%= "#{comment.body} 📣#{comment.name} #{time_ago_in_words(comment.created_at)} #{"ago"}" %> <br>
+      
+    
       <% end %>
- <br>
-
-   <h3>Add a Comment: </h3>
-      <%= form_for([post, post.comments.build]) do |f| %>
-        <p>
-          <%= f.label :name %>
-          <%= f.text_field :name %>
-        </p>
-        <p>
-          <%= f.label :body %><br>
-          <%= f.text_area :body %>
-        </p>
-        <br>
-        <p>
-          <%= f.submit %>
-        </p>
-      <% end %>
-    <br>
+    </div>
+    <div class="comments-<%= cookies[:theme] %>">
+    
+          <%= form_for([post, post.comments.build]) do |f| %>
+            <p>
+              <!-- <%= f.label :name %> -->
+              <!-- <%= f.text_field :name %> -->
+            </p>
+            <p>
+              <%= f.text_area :body, class: 'comment-form', placeholder: "Add a comment..." %>
+              <%= f.submit :submit, class: 'post-comment', value: "Post" %>
+            </p>
+            <br>
+            <p>
+              
+            </p> 
+            <br>
+          <% end %>
+   
+ </div>
+  </div>
 <% end %>
 
 </body>
