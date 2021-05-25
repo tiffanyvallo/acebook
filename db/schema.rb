@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2021_05_24_131646) do
-
-# old schema comment out, to check if still needed ActiveRecord::Schema.define(version: 2021_05_24_160811) do
-
+ActiveRecord::Schema.define(version: 2021_05_25_144508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,7 +51,7 @@ ActiveRecord::Schema.define(version: 2021_05_24_131646) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["post_id"], name: "index_comments_on_post_id"
   end
-  
+
   create_table "images", force: :cascade do |t|
     t.binary "image"
     t.bigint "post_id", null: false
@@ -81,6 +77,7 @@ ActiveRecord::Schema.define(version: 2021_05_24_131646) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "remember_token"
+    t.text "bio"
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
