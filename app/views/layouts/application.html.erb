@@ -4,28 +4,24 @@
     <title>Acebook</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-  
-    
 
     <div id='titlebar'>
-    <%= image_tag ("logo_no_bg.png"), class: "img-responsive" %>
-    
-   <span id="title">Acebook</span>
- 
-   </div>
+      <%= image_tag ("logo_no_bg.png"), class: "img-responsive" %>
+
+      <span id="title">Acebook</span>
+
+    </div>
   </head>
 
   <body class="<%= cookies[:theme] %>">
 
-  <% if cookies[:theme] == "light" %>
-  <button class="dark_mode"><%= link_to "Dark mode", root_path(theme: "dark") %></button>
-  <% else %>
-  <button class="light_mode"><%= link_to "Light mode", root_path(theme: "light") %></button>
-  <% end %>
-
-
+    <% if cookies[:theme] == "light" %>
+      <button class="dark_mode"><%= link_to "Dark mode", root_path(theme: "dark") %></button>
+    <% else %>
+      <button class="light_mode"><%= link_to "Light mode", root_path(theme: "light") %></button>
+    <% end %>
 
     <%= yield %>
   </body>

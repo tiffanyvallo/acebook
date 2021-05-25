@@ -1,9 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
-
-  before_action :require_login
+  
   before_action :set_theme
+  before_action :require_login
+  
 
   def handle_unverified_request
     log_out
