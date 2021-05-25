@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-<body>
+<body div="body">
 
 
 <% flash.each do |type, msg| %>
@@ -24,31 +24,62 @@
 <%= link_to new_post_path do %>
   New post
 <% end %>
-          
+</br>
 <% @posts.reverse.each do |post| %>
+</br>
 
+  <br>
+  <div class="posts-<%= cookies[:theme] %>">
+    <form action='/posts/<%= post.id %>/like'>
+      <%= post.message %><br>
+    <% if post.image.attached? %>
+        <% post.image.each do |pic|%>
+      
+        <image src="<%=(url_for(pic))%>" class="post-image">
+      
+        <% end %>
+      <% end %>
+      <br>
+    <!-- Edit post button, does not link yet, to review if we still want this -->
+      <% if false %>
+      <%= link_to 'Edit', edit_post_path(post) %>
+      <% end %>
+    </form> <br>
+  </div>
+    
+<% @users.each do |user| %> 
+  <%= user.name if user.id == post.user_id %> 
+  <% end %>
   <form action='/posts/<%= post.id %>/like'>
-    <%= post.message %>, 
-    <% if post.photo1.attached? %>
-      <image src="<%=(url_for(post.photo1))%>" %>
-    <% end %>
-    
-    <% if post.photo2.attached? %>
-      <image src="<%=(url_for(post.photo2))%>" %>
-    <% end %>
-    
-    <% if post.photo3.attached? %>
-      <image src="<%=(url_for(post.photo3))%>" %>
-    <% end %>
-    
-    <% if post.photo4.attached? %>
-      <image src="<%=(url_for(post.photo4))%>" %>
-    <% end %>
-    <%= post.likes %> like<%= 's' if post.likes != 1 %>
-    <input type='submit' value="❤️">
-  </form> <br>
+    <%= post.message %>, <%= post.likes %> like<%= 's' if post.likes != 1 %>
+    <input type='submit' value="❤️"> <br>
+  </form>
+    <br>
+    <h2> <%= post.comments.count %> Comments</h2>
+
+      <% post.comments.each do |comment| %>
+        <%= "#{comment.body} 📣#{comment.name} #{time_ago_in_words(comment.created_at)} #{"ago"}" %> <br>
+      <% end %>
+ <br>
+
+   <h3>Add a Comment: </h3>
+      <%= form_for([post, post.comments.build]) do |f| %>
+        <p>
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </p>
+        <p>
+          <%= f.label :body %><br>
+          <%= f.text_area :body %>
+        </p>
+        <br>
+        <p>
+          <%= f.submit %>
+        </p>
+      <% end %>
+    <br>
 <% end %>
 
 </body>
 </html>
-
+ 
