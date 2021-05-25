@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Acebook</title>
 </head>
 <body>
 
@@ -13,27 +13,19 @@
   <li><%= link_to "Log out", 'logout', method: :delete %>
 </ul>
 
-  <%= form_for @post do |form| %>
-    <%= form.label :message %>
-    <%= form.text_field :message %>
-    
-    <%= form.label :photo %>
-    <%= form.file_field :photo1 %>
+<%= form_for @post do |form| %>
+  <%= form.label :message %>
+  <%= form.text_field :message %>
+  
+  <%= form.label :photo %>
+  <%= form.file_field :image, multiple: true %>
 
-    <%= form.label :photo %>
-    <%= form.file_field :photo2 %>
-    
-    <%= form.label :photo %>
-    <%= form.file_field :photo3 %>
-    
-    <%= form.label :photo %>
-    <%= form.file_field :photo4 %> 
-    
-    <%= form.submit "Submit" %>
+   <%= form.submit "Submit" %>
   <% end %>
 
 </body>
 </html>
+
 
 
 
