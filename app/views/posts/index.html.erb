@@ -51,14 +51,21 @@
   <%= user.name if user.id == post.user_id %> 
   <% end %>
   <form action='/posts/<%= post.id %>/like'>
-    <%= post.message %>, <%= post.likes %> like<%= 's' if post.likes != 1 %>
+   <%= post.message %>, <%= post.likes %> like<%= 's' if post.likes != 1 %> 
     <input type='submit' value="❤️"> <br>
   </form>
     <br>
     <h2> <%= post.comments.count %> Comments</h2>
     
       <% post.comments.each do |comment| %>
-        <%= "#{comment.body} 📣#{comment.name} #{time_ago_in_words(comment.created_at)} #{"ago"}" %> <br>
+      <% commenter = 'anonymous' %>
+      <% @users.each do |user| %> 
+        <% commenter = user.name if user.id == comment.user_id %> 
+      <% end %>
+
+       <%= "#{comment.body}" %>
+       <b> <%= "📣 #{commenter}" %> </b> 
+        <%= "#{time_ago_in_words(comment.created_at)} #{"ago"}" %> <br>
       <% end %>
  <br>
 
