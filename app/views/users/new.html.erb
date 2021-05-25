@@ -33,6 +33,8 @@
   <%= form.password_field :password, class: 'form-control'%>
   <%= form.label :password_confirmation %>
   <%= form.password_field :password_confirmation, class: 'form-control'%>
+  <%= form.label :avatar %>
+  <%= form.file_field :avatar %>
 
   <%= form.submit "Create Account" %>
 <% end %>
