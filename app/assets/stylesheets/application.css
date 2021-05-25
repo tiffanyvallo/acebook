@@ -108,9 +108,10 @@ body.dark {
   background-color: rgb(129, 129, 241);
   color: black;
   text-align: center;
-  padding: 100px;
+  padding: 10px;
   margin: auto;
   width: 50%;
+  height: auto;
 }
 
 .post-image {
@@ -120,6 +121,13 @@ body.dark {
 }
 
 .likes-light{
+  padding: 10px;
+  margin: 10px;
+  width: 30%;
+  align-self: left;
+}
+
+.likes-dark {
   padding: 10px;
   margin: 10px;
   width: 30%;

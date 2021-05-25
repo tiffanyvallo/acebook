@@ -54,7 +54,7 @@
         <% end %>
         <form action='/posts/<%= post.id %>/like'>
           
-          <input type='submit' <i class="far fa-heart fa-lg"></i>
+          <input type='submit' value="❤️"> 
         </form>
         
         <h4> <%= post.likes %> like<%= 's' if post.likes != 1 %> <%= post.comments.count %> Comments </h4>
@@ -69,12 +69,12 @@
     
           <%= form_for([post, post.comments.build]) do |f| %>
             <p>
-              <%= f.label :name %>
-              <%= f.text_field :name %>
+              <!-- <%= f.label :name %> -->
+              <!-- <%= f.text_field :name %> -->
             </p>
             <p>
               <%= f.text_area :body, class: 'comment-form', placeholder: "Add a comment..." %>
-              <%= f.submit %>
+              <%= f.submit :submit, class: 'post-comment', value: "Post" %>
             </p>
             <br>
             <p>
