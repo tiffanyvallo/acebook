@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get 'signup', to:'users#new'
     post '/users', to: 'users#index' 
     get 'profile', to: 'users#show' 
+    get 'edit', to: 'users#edit'
   end
   
   resources :posts do

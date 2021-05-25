@@ -1,0 +1,11 @@
+  <div>
+    <%= form_with model: current_user, local: true do |form| %>
+      <div class="form-group">
+        <%= form.label :avatar %>
+        <%= form.file_field :avatar %>
+      </div>
+      <div>
+      <%= form.submit "Submit"%>
+      </div>
+      <% end %>
+    </div>

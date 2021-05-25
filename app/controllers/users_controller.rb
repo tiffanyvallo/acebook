@@ -19,7 +19,11 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
+  end
 
+  def update
+    current_user.update(user_params)
+    redirect_to current_user
   end
   
   private

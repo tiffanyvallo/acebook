@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2021_05_24_131646) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["post_id"], name: "index_images_on_post_id"
   end
-  
+
   create_table "posts", force: :cascade do |t|
     t.string "message"
     t.datetime "created_at", null: false
