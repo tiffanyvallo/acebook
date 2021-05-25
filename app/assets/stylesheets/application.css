@@ -89,3 +89,27 @@ body.dark {
   background-color: #f0f2f5;
   color: white;
 }
+
+.posts-light {
+  background-color: rgb(177, 201, 247);
+  color: black;
+  text-align: center;
+  padding: 100px;
+  margin: auto;
+  width: 50%;
+  
+}
+.posts-dark {
+  background-color: rgb(129, 129, 241);
+  color: black;
+  text-align: center;
+  padding: 100px;
+  margin: auto;
+  width: 50%;
+}
+
+.post-image {
+  max-width: 150px;
+  max-height: 150px;
+  padding: 1px;
+}

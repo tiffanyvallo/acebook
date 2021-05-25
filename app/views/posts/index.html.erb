@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-<body>
+<body div="body">
 
 
 <% flash.each do |type, msg| %>
@@ -28,6 +28,25 @@
 <% @posts.reverse.each do |post| %>
 </br>
 
+  <br>
+  <div class="posts-<%= cookies[:theme] %>">
+    <form action='/posts/<%= post.id %>/like'>
+      <%= post.message %><br>
+    <% if post.image.attached? %>
+        <% post.image.each do |pic|%>
+      
+        <image src="<%=(url_for(pic))%>" class="post-image">
+      
+        <% end %>
+      <% end %>
+      <br>
+    <!-- Edit post button, does not link yet, to review if we still want this -->
+      <% if false %>
+      <%= link_to 'Edit', edit_post_path(post) %>
+      <% end %>
+    </form> <br>
+  </div>
+    
 <% @users.each do |user| %> 
   <%= user.name if user.id == post.user_id %> 
   <% end %>
