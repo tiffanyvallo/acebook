@@ -40,7 +40,7 @@ Users can:
 - [x] Comment on posts and pictures
 - [x] Like posts and pictures
 - [ ]  View their own posts on a unique profile page
-- [ ]  Update their profile with an 'About me'
+- [x]  Update their profile with an 'About me'
 - [x] Update their account details
 - [x] Add and change a profile picture
 - [x] Be assigned a default profile picture if none added
