@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:post_id])
     @post.likes += 1
     @post.save!
-    redirect_to posts_url
+    redirect_to posts_url #change to root 
   end
 
   private
