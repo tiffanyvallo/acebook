@@ -18,7 +18,7 @@ RSpec.feature "Sign In", type: :feature do
     fill_in "Password", with: "password"
     click_button "Login"
 
-    expect(page).to have_current_path("/posts")
+    expect(page).to have_current_path("/")
     expect(page).to have_content("Welcome, John")
   end
 

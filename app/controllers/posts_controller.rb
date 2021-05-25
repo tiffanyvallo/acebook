@@ -1,6 +1,11 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
+    @users = User.all
+  end
+
+  def show
+    redirect_to posts_url
   end
   
   def new
@@ -8,8 +13,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    p post_params["image"]
-    @post = Post.create(post_params)
+    @post = Post.create(post_params.merge(user_id: current_user.id))
     redirect_to posts_url
   end
 
@@ -17,7 +21,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:post_id])
     @post.likes += 1
     @post.save!
-    redirect_to posts_url
+    redirect_to posts_url #change to root 
   end
 
   # def update
