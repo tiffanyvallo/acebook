@@ -13,9 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+
+
 body.light {
 
   background-color: #f0f2f5;
+  /* background-color:#a7effa; */
   color: #1c1e21;
   font-family: helvetica, sans-serif; 
   text-align: left;
@@ -94,9 +98,10 @@ body.dark {
   background-color: rgb(177, 201, 247);
   color: black;
   text-align: center;
-  padding: 100px;
+  padding: 10px;
   margin: auto;
   width: 50%;
+  height: auto;
   
 }
 .posts-dark {
@@ -112,4 +117,17 @@ body.dark {
   max-width: 150px;
   max-height: 150px;
   padding: 1px;
+}
+
+.likes-light{
+  padding: 10px;
+  margin: 10px;
+  width: 30%;
+  align-self: left;
+}
+
+.comment-form {
+  width: 100%;
+  font-family: Helvetica, sans-serif;
+  border: none;
 }

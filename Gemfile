@@ -29,6 +29,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'image_processing', '~> 0.2.3'
 
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
