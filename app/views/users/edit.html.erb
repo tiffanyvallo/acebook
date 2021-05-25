@@ -8,6 +8,12 @@
 </head>
 <body>
 
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+
   <% provide(:title, "Edit user") %>
 <h1>Update your profile</h1>
 
@@ -23,6 +29,9 @@
 
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :bio %>
+      <%= f.text_area :bio, class: 'form-control' %>
 
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
