@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     post '/users', to: 'users#index' 
     get 'profile', to: 'users#show' 
     get 'edit', to: 'users#edit'
+    post 'edit', to: 'users#update' 
   end
   
   resources :posts do
