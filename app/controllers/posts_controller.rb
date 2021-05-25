@@ -1,6 +1,11 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
+    @users = User.all
+  end
+
+  def show
+    redirect_to posts_url
   end
   
   def new
@@ -8,9 +13,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    p post_params
-    @post = Post.create(post_params)
-    redirect_to posts_url #change to root 
+    @post = Post.create(post_params.merge(user_id: current_user.id))
+    redirect_to posts_url
   end
 
   def like

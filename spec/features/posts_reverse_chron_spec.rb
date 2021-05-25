@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+
 RSpec.feature "posts appear in reverse chronologically order", type: :feature do
   scenario "Posts appear in reverse chronologically order" do
     visit "/login"
@@ -15,7 +16,7 @@ RSpec.feature "posts appear in reverse chronologically order", type: :feature do
     fill_in "Email", with: "jdoe@email.com"
     fill_in "Password", with: "password"
     click_button "Login"
-   
+    visit "/posts"
     click_link "New post"
     fill_in "Message", with: "Hello, world!"
     click_button "Submit"
