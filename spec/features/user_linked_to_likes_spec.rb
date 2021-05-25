@@ -46,7 +46,8 @@ RSpec.feature "Likes are linked to users", type: :feature do
 
     #----------------------
 
-    click_button "❤️"
-    expect(page).to have_content("Jane Doe")
+    click_link "❤️"
+    click_link "❤️"
+    expect(page).to have_content("1 like")    
   end
 end

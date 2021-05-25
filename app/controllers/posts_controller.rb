@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @users = User.all
+    @likes = Like.all
   end
 
   def show
@@ -18,9 +19,7 @@ class PostsController < ApplicationController
   end
 
   def like
-    @post = Post.find(params[:post_id])
-    @post.likes += 1
-    @post.save!
+    Like.create
     redirect_to posts_url #change to root 
   end
 

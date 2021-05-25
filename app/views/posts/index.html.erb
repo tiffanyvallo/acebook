@@ -47,17 +47,21 @@
     </form> <br>
   </div>
     
-<% @users.each do |user| %> 
-  <%= user.name if user.id == post.user_id %> 
+  <% @users.each do |user| %> 
+    <%= user.name if user.id == post.user_id %> 
   <% end %>
-  <form action='/posts/<%= post.id %>/like'>
-   <%= post.message %>, <%= post.likes %> like<%= 's' if post.likes != 1 %> 
-    <input type='submit' value="❤️"> <br>
-  </form>
-    <br>
-    <h2> <%= post.comments.count %> Comments</h2>
+
+  <% like_count = 0 %>
+  <% @likes.each do |like| %>
+    <% like_count += 1 %>
+  <% end %>
+
+  <%= post.message %>, <%= like_count %> like<%= 's' if like_count != 1 %> 
+  <%= link_to "❤️", post_likes_path(post), method: :post %> <br>
+  <br>
+  <h2> <%= post.comments.count %> Comments</h2>
     
-      <% post.comments.each do |comment| %>
+  <% post.comments.each do |comment| %>
       <% commenter = 'anonymous' %>
       <% @users.each do |user| %> 
         <% commenter = user.name if user.id == comment.user_id %> 
