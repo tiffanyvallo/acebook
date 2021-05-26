@@ -14,100 +14,88 @@
  *= require_self
  */
 
+ body {
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   margin-bottom: 80px;
+ }
 
 
 body.light {
-
   background-color: #f0f2f5;
-  /* background-color:#a7effa; */
   color: #1c1e21;
   font-family: helvetica, sans-serif; 
   text-align: left;
-
 }
 
 body.dark {
-  background-color: #0f0946;
+  background-color: #1F2833;
   color: #ffffff;
   font-family: helvetica, sans-serif; 
   text-align: left;
 }
 
 .posts {
-
   background-color: white;
-
   margin: auto;
   width: 50%;
   border: 1px solid rgba(48, 43, 49, 0.365);
   padding: 10px;
   box-shadow: 0 30px 40px rgba(0,0,0,.1);
   border-radius: 10px;
-  
-
 }
 
 .img-responsive {
   max-width: 60px;
 }
 
-#title {
-  padding-bottom: 50px;
-  margin-bottom: 50px;
-  font-size: 35px;
-  font-weight: bold;
-  color:rgb(88, 152, 195);
-
-}
-
-.titlebar {
-  background-color: white;
-}
-
 .dark_mode {
   width: 80px;
-  height:50px;
+  height: 50px;
   background-color: #f0f2f5;
   border: 30px;
   border-radius: 20%;
   right: 60px;
   transition-duration: 1s;
+  position: absolute;
+  top: 90px;
+  right: 10px;
 }
 
 .dark_mode:hover {
-  background-color: #5f6dec;
+  background-color: #ff4c00;
   color: white;
 }
 
 .light_mode {
   width: 80px;
-  height:50px;
+  height: 50px;
   background-color: #81828d;
   border: 30px;
   border-radius: 20%;
   right: 60px;
   transition-duration: 1s;
+  position: absolute;
+  top: 90px;
+  right: 10px;
 }
 
 .light_mode:hover {
-  background-color: #f0f2f5;
+  background-color: #ff4c00;
   color: white;
 }
 
 .posts-light {
   background-color: rgb(177, 201, 247);
   color: black;
-  text-align: center;
   padding: 10px;
   margin: auto;
   width: 50%;
   height: auto;
-  
 }
+
 .posts-dark {
   background-color: rgb(129, 129, 241);
   color: black;
-  text-align: center;
   padding: 10px;
   margin: auto;
   width: 50%;
@@ -120,22 +108,87 @@ body.dark {
   padding: 1px;
 }
 
-.likes-light{
-  padding: 10px;
-  margin: 10px;
-  width: 30%;
-  align-self: left;
-}
-
-.likes-dark {
-  padding: 10px;
-  margin: 10px;
-  width: 30%;
-  align-self: left;
-}
-
 .comment-form {
   width: 100%;
   font-family: Helvetica, sans-serif;
   border: none;
+}
+
+/* NAV BAR */
+
+#titlebar {
+  margin:0px; 
+  text-align:center; 
+  width: 100%; 
+  background-color: white; 
+  position: fixed;
+  top: 0;
+}
+
+#title {
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+  font-size: 35px;
+  font-weight: bold;
+  color:#3590de;
+  position:fixed;
+  top: 10px;
+
+
+}
+
+#logo {
+  display:inline-block; 
+  float: left;
+}
+
+#navbar a {
+  color:#3590de;
+  font-weight: bold; 
+  padding: 6px 20px; 
+  border-bottom: 0px solid #3590de; 
+  text-decoration: none; 
+  transition: border-bottom 0.2s linear 0s;
+}
+
+#navbar a:hover {
+  color:#054976; 
+  background:transparent; 
+  text-decoration:none; 
+  border-bottom:7px solid #3590de;}
+
+#navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding:22px 6px 16px 0;
+  overflow: hidden;
+  position:fixed;
+  top: 0;
+  right: 10px;
+  width: 50%;
+}
+
+#navbar li {
+  float:right;
+}
+
+#navbar li a {
+  display: block;
+  padding-right: 15px;
+}
+
+#footer {
+  padding-bottom: 6px;
+  padding-top: 6px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  color: #3590de;
+  text-align: right;
+}
+
+#yield {
+  padding-top: 50px;
 }

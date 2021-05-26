@@ -51,11 +51,13 @@ Users can:
 
 ## How to deploy on Heroku
 
-1. 
+1. Push to Github
+2. And thats it! Auto deploy is enabled on Heroku. Just make sure to log out, close the page, open the page and log back in. 
 
 # Common debugging 
  
 # bundle install failed when deploying Heroku
+
 1. Run 'bundle lock --add-platform x86_64-linux'. Heroku runs on linux. When adding this into your Gemlock it allows Heroku to use your code.
 2. Run 'bundle lock --add-platform ruby' 
 3. Push changes 
