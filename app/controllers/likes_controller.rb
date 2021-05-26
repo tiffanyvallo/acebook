@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  
   def create
     @likes = Like.all
     @user = current_user.id
