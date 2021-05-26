@@ -51,7 +51,8 @@ Users can:
 
 ## How to deploy on Heroku
 
-1. 
+1. Push to Github
+2. And thats it! Auto deploy is enabled on Heroku. Just make sure to log out, close the page, open the page and log back in. 
 
 # Common debugging 
  
