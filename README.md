@@ -56,6 +56,7 @@ Users can:
 # Common debugging 
  
 # bundle install failed when deploying Heroku
+
 1. Run 'bundle lock --add-platform x86_64-linux'. Heroku runs on linux. When adding this into your Gemlock it allows Heroku to use your code.
 2. Run 'bundle lock --add-platform ruby' 
 3. Push changes 
