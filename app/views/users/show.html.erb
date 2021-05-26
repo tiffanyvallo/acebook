@@ -9,7 +9,7 @@
   <body>
 
   <ul>
-    <div id='edit_profile'> <li> <%= link_to "Edit Profile", edit_user_path(current_user) %> </div>
+    <%# <div id='edit_profile'> <li> <%= link_to "Edit Profile", edit_user_path(current_user) % > </div> %>
   </ul>
 
   <%# <a href="<%= edit_user_path(current_user) % >"> %>
@@ -33,12 +33,6 @@
 <%# ----------- Posts ------------------- %>
 <%# Users personal posts (found via user_id) %>
 
-<%# ATTEMPT AT HIDING EDIT PROFILE BUTTON%>
-  <script>
-    if (@user.id !== current_user.id) {
-      hide_editProfile()
-    }
-  </script>
 
   <script>
     hide_profile()
