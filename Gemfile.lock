@@ -98,11 +98,17 @@ GEM
     marcel (1.0.1)
     method_source (1.0.0)
     mini_mime (1.0.3)
+    mini_portile2 (2.5.1)
     minitest (5.14.4)
     nio4r (2.5.7)
+    nokogiri (1.11.5)
+      mini_portile2 (~> 2.5.0)
+      racc (~> 1.4)
     nokogiri (1.11.5-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.11.5-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.11.5-x86_64-linux)
       racc (~> 1.4)
     pg (1.2.3)
     public_suffix (4.0.6)
@@ -199,7 +205,9 @@ GEM
 
 PLATFORMS
   arm64-darwin-20
+  ruby
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
@@ -219,4 +227,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   2.2.16
+   2.2.17
