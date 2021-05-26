@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @posts = current_user.posts.order(created_at: :desc)
     # Nav bar will need user profile link in this html
   end
 
@@ -31,9 +32,9 @@ class UsersController < ApplicationController
     end
   end
 
-  # def user_posts
-  #   @posts = current_user.posts.order(created_at: :desc)
-  # end
+  def user_posts
+    @posts = current_user.posts.order(created_at: :desc)
+  end
   
 
   private

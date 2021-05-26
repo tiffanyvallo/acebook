@@ -32,7 +32,19 @@
     <h3 class="bio"><%=@user.bio%></h3>
 <%# ----------- Posts ------------------- %>
 <%# Users personal posts (found via user_id) %>
-
+<div class="user-posts">
+  <% @posts.each do |post|%>
+    <div class="wrapper">
+      <div id='postcontent'>
+        <%= post.message %><br>
+        <% if post.image.attached? %>
+          <% post.image.each do |pic|%>
+            <img src="<%=(url_for(pic))%>" class="post-image">
+          <% end %>
+        <% end %>
+      </div>
+  <% end %>
+</div>
 
   <script>
     hide_profile()
