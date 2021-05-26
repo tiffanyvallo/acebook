@@ -8,11 +8,6 @@
   </head>
   <body>
 
-    <ul>
-      <li><%= link_to "Profile", current_user %>
-      <li><%= link_to "Log out", 'logout', method: :delete %>
-    </ul>
-
     <%= form_for @post do |form| %>
     <%= form.label :message %>
     <%= form.text_field :message %>
@@ -23,5 +18,8 @@
     <%= form.submit "Submit" %>
   <% end %>
 
+  <script>
+    hide_newpost()
+  </script>
 </body>
 </html>

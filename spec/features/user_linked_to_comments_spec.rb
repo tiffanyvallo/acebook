@@ -46,7 +46,7 @@ RSpec.feature "comments are linked to users", type: :feature do
 
     #----------------------
 
-    click_button "Create Comment"
+    click_button "Post"
     expect(page).to have_content("Jane Doe")
 
   end
