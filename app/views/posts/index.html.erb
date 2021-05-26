@@ -47,13 +47,26 @@
       <% if false %>
         <%= link_to 'Edit', edit_post_path(post) %>
       <% end %>
-
-    </form>
-    <br>
-
-    <% @users.each do |user| %>
-      <%= user.name if user.id == post.user_id %>
-    <% end %>
+    </form> <br>
+  </div>
+    
+          
+  <% @users.each do |user| %> 
+    <%= user.name if user.id == post.user_id %> 
+  <% end %>
+      
+   <!--- check to see if cookies theme is correct for individual likes -->
+  <div class="likes-<%= cookies[:theme] %>"> 
+  <%= post.message %>, <%= post.likes.count %> like<%= 's' if post.likes.count != 1 %> 
+  <%= link_to "❤️", post_likes_path(post), method: :post %> <br>
+  <br>
+  <h2> <%= post.comments.count %> Comments</h2>
+    
+  <% post.comments.each do |comment| %>
+      <% commenter = 'anonymous' %>
+      <% @users.each do |user| %> 
+        <% commenter = user.name if user.id == comment.user_id %> 
+      <% end %>
 
     <% like_count = 0 %>
       <% @likes.each do |like| %>
