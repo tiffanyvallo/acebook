@@ -29,10 +29,13 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
-    # current_user.update(user_params)
-    # redirect_to current_user
   end
+
+  # def user_posts
+  #   @posts = current_user.posts.order(created_at: :desc)
+  # end
   
+
   private
   
     def user_params
