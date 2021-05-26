@@ -39,14 +39,15 @@
 
       <div id='navbar'>
         <ul>
-          <div id='nav_newpost'> <li> <%= link_to "New post", new_post_path %> </div>
-          <div id='nav_timeline'> <li> <%= link_to "Timeline", '/' %> </div>
-          <div id='nav_profile'> <li> <%= link_to "Profile", current_user %> </div>
           <div id='nav_logout'> <li> <%= link_to "Log out", '/sessions/destroy', method: :delete %> </div>
+          <div id='nav_profile'> <li> <%= link_to "Profile", current_user %> </div>
+          <div id='nav_timeline'> <li> <%= link_to "Timeline", '/' %> </div>
+          <div id='nav_newpost'> <li> <%= link_to "New post", new_post_path %> </div>
         </ul>
       </div>
     </div>
-
+<br>
+<br>
     <% if cookies[:theme] == "light" %>
       <button class="dark_mode"><%= link_to "Dark mode", root_path(theme: "dark") %></button>
     <% else %>

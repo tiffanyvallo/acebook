@@ -56,12 +56,17 @@ body.dark {
   margin-bottom: 50px;
   font-size: 35px;
   font-weight: bold;
-  color:rgb(88, 152, 195);
+  color:#3590de;
+  /* position:fixed;
+  top: 10px; */
+
 
 }
 
-.titlebar {
+#titlebar {
   background-color: white;
+  position: fixed;
+  top: 0;
 }
 
 .dark_mode {
@@ -72,6 +77,9 @@ body.dark {
   border-radius: 20%;
   right: 60px;
   transition-duration: 1s;
+  position: absolute;
+  top: 90px;
+  left: 10px;
 }
 
 .dark_mode:hover {
@@ -87,6 +95,9 @@ body.dark {
   border-radius: 20%;
   right: 60px;
   transition-duration: 1s;
+  position: absolute;
+  top: 90px;
+  left: 10px;
 }
 
 .light_mode:hover {
