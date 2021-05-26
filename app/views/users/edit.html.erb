@@ -1,4 +1,21 @@
-<div>
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+<label class="switch">
+      <input type="checkbox", class="toggle-mode">
+      <span class="slider round"></span>
+    </label>
+
+    <%= yield %>
+
+  <div class="form"> 
   <% provide(:title, "Edit user") %>
     <h1>Update your profile</h1>
         <%= form_for(current_user) do |f| %>
@@ -13,3 +30,9 @@
         <%= f.submit "Save changes", class: "btn btn-primary btn-block btn-large" %>
       <% end %>
 </div>
+
+</body>
+</html>
+
+
+

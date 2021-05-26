@@ -1,13 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acebook</title>
+  </head>
+  <body>
+
+ <label class="switch">
+      <input type="checkbox", class="toggle-mode">
+      <span class="slider round"></span>
+    </label>
+
+    <%= yield %>
+
 <div class="form">
-
     <%= form_for @post do |form| %>
-   
-    <%= form.text_field :message, placeholder: "Message"%>
-    <%= form.file_field :image, multiple: true, placeholder:"Photos"%>
+    <%= form.label :message %>
+    <%= form.text_field :message, placeholder:"Message" %>
 
-    <%= form.submit "Submit", class:"btn btn-primary btn-block btn-large" %>
+    <%= form.label :photo %>
+    <%= form.file_field :image, multiple: true, placeholder:"Photo" %>
+
+    <%= form.submit "Submit", class:"btn btn-primary btn-block btn-large"  %>
   <% end %>
   </div>
+
   <script>
     hide_newpost()
   </script>
+</body>
+</html>

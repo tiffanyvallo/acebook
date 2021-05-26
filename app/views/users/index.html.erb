@@ -1,27 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acebook</title>
+  </head>
+  <body class="bg_image">
 
- <body class="bg_image">
-   
- 
-  <h1>Welcome to Acebook</h1>
-  <div class="form">
-    <%= form_for(:session, url: 'login' ) do |f| %>
+    <h1>Welcome to Acebook</h1>
+    <div class="form">
+      <%= form_for(:session, url: 'login' ) do |f| %>
 
-    <%= f.email_field :email, class: 'form-control', placeholder:"Email"%>
+      <%= f.email_field :email, class: 'form-control', placeholder:"Email" %>
 
-    <%= f.password_field :password, class: 'form-control', placeholder:"Password" %>
 
-    <%= f.submit "Login", class: "btn btn-primary btn-block btn-large" %>
+      <%= f.password_field :password, class: 'form-control', placeholder:"Password"%>
+
+      <%= f.submit "Login", class: "btn btn-primary btn-block btn-large" %>
     <% end %>
     <form action="/users/new" method="get">
-     <button class="btn btn-primary btn-block btn-large" type="submit"">Sign Up</button>
-    </form>
+    <button class="btn btn-primary btn-block btn-large" type="submit">Sign Up</button>
+  </form>
   </div>
 
- 
-<script>
+  <br>
+  
+
+  <script>
     hide_newpost()
     hide_timeline()
     hide_profile()
     hide_logout()
-</script>
+  </script>
 </body>
+</html>
