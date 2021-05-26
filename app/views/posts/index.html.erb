@@ -8,9 +8,6 @@
   </head>
   <body div="body">
 
-    
-  
-  
 </br>
 <% @posts.reverse.each do |post| %>
 </br>
@@ -38,9 +35,9 @@
       <% if false %>
         <%= link_to 'Edit', edit_post_path(post) %>
       <% end %>
-
     </form>
     <br>
+
     <% like_count = 0 %>
       <% @likes.each do |like| %>
         <% like_count += 1 %>
