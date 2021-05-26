@@ -20,7 +20,7 @@
  }
 
 
-body.light {
+/* body.light {
   background-color: #f0f2f5;
   color: #1c1e21;
   font-family: helvetica, sans-serif; 
@@ -32,7 +32,7 @@ body.dark {
   color: #ffffff;
   font-family: helvetica, sans-serif; 
   text-align: left;
-}
+} */
 
 .posts {
   background-color: white;
@@ -84,7 +84,7 @@ body.dark {
   color: white;
 }
 
-.posts-light {
+/* .posts-light {
   background-color: rgb(177, 201, 247);
   color: black;
   padding: 10px;
@@ -100,7 +100,7 @@ body.dark {
   margin: auto;
   width: 50%;
   height: auto;
-}
+} */
 
 .post-image {
   max-width: 150px;
@@ -120,7 +120,7 @@ body.dark {
   margin:0px; 
   text-align:center; 
   width: 100%; 
-  background-color: white; 
+  background-color: rgba(255, 255, 255, 0); 
   position: fixed;
   top: 0;
 }
@@ -184,7 +184,7 @@ body.dark {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
   color: #3590de;
   text-align: right;
 }
