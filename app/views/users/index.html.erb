@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acebook</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acebook</title>
+  </head>
+  <body>
 
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
 
-<% flash.each do |type, msg| %>
-  <div>
-    <%= msg %>
-  </div>
-<% end %>
-
-<h1>Welcome to Acebook</h1>
-<div>
-    <%= form_for(:session, url: 'login' ) do |f| %>
+    <h1>Welcome to Acebook</h1>
+    <div>
+      <%= form_for(:session, url: 'login' ) do |f| %>
 
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
@@ -27,15 +26,12 @@
 
       <%= f.submit "Login", class: "btn btn-primary" %>
     <% end %>
-</div>
-
+  </div>
 
   <br>
-<form action="/users/new" method="get">
+  <form action="/users/new" method="get">
     <button type="submit">Sign Up</button>
-</form>
+  </form>
 
 </body>
 </html>
-
-
