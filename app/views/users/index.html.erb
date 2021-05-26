@@ -8,12 +8,6 @@
   </head>
   <body>
 
-    <% flash.each do |type, msg| %>
-      <div>
-        <%= msg %>
-      </div>
-    <% end %>
-
     <h1>Welcome to Acebook</h1>
     <div>
       <%= form_for(:session, url: 'login' ) do |f| %>
@@ -33,5 +27,11 @@
     <button type="submit">Sign Up</button>
   </form>
 
+  <script>
+    hide_newpost()
+    hide_timeline()
+    hide_profile()
+    hide_logout()
+  </script>
 </body>
 </html>
