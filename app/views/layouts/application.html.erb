@@ -3,9 +3,10 @@
   <head>
     <title>Acebook</title>
     <%= csrf_meta_tags %>
-
+    
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
   </head>
 
   <body class="<%= cookies[:theme] %>">
@@ -33,7 +34,7 @@
     </script>
 
     <div id='titlebar'>
-      <%= image_tag ("logo_no_bg.png"), class: "img-responsive" %>
+      <%= link_to image_tag("logo_no_bg.png", :class => "img-responsive"), root_path %>
 
       <span id="title">Acebook</span>
 
