@@ -64,7 +64,7 @@ body.dark {
   transition-duration: 1s;
   position: absolute;
   top: 90px;
-  left: 10px;
+  right: 10px;
 }
 
 .dark_mode:hover {
@@ -82,7 +82,7 @@ body.dark {
   transition-duration: 1s;
   position: absolute;
   top: 90px;
-  left: 10px;
+  right: 10px;
 }
 
 .light_mode:hover {
@@ -216,4 +216,8 @@ body.dark {
   background-color: white;
   color: #3590de;
   text-align: right;
+}
+
+#yield {
+  padding-top: 50px;
 }

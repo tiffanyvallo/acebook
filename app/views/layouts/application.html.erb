@@ -56,7 +56,16 @@
       <button class="light_mode"><%= link_to "Light mode", root_path(theme: "light") %></button>
     <% end %>
 
+  <div id="yield">
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    
     <%= yield %>
+  </div>
+
 
     <div id='footer'>
       © <a href="https://github.com/dominicmeddick/acebook-smokin-meats">Smokin’Meats</a>🥩
