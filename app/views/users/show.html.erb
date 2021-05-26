@@ -8,13 +8,9 @@
   </head>
   <body>
 
-    <ul>
-      <li><%= link_to "Timeline", '/' %>
-      <li><%= link_to "Log out", '/sessions/destroy', method: :delete %>
-        <a class="edit-profile" href="<%= edit_user_path(current_user) %>">
-          <button>Edit Profile</button>
-        </a>
-    </ul>
+  <a class="edit-profile" href="<%= edit_user_path(current_user) %>">
+    <button>Edit Profile</button>
+  </a>
 
 <%# --------- Personal Details -------- %>
     <% provide(:title, @user.name) %>
@@ -33,5 +29,9 @@
 <%# ----------- Posts ------------------- %>
 <%# Users personal posts (found via user_id) %>
 
+
+    <script>
+      hide_profile()
+    </script>
   </body>
 </html>

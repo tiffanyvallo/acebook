@@ -13,15 +13,6 @@
         <%= msg %>
       </div>
     <% end %>
-
-    <ul>
-      <li><%= link_to "Profile", current_user %>
-      <li><%= link_to "Log out", 'logout', method: :delete %>
-    </ul>
-
-    <%= link_to new_post_path do %>
-    New post
-  <% end %>
 </br>
 <% @posts.reverse.each do |post| %>
 </br>
@@ -89,10 +80,13 @@
                 <% end %>
               </p>
             </div>
-          
-
         </div>
       </div>
     <% end %>
+
+  
+  <script>
+    hide_timeline()
+  </script>
   </body>
 </html>
