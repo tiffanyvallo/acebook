@@ -18,6 +18,11 @@
       <li><%= link_to "Profile", current_user %>
       <li><%= link_to "Log out", 'logout', method: :delete %>
     </ul>
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
 
     <%= link_to new_post_path do %>
     New post
