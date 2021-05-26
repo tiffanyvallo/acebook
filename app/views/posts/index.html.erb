@@ -31,6 +31,10 @@
             <%= user.name if user.id == post.user_id %>
         </div>
         <% end %>
+         <br>
+            <i>
+                <span id='timeago'> <%= " posted #{time_ago_in_words(post.created_at)} #{"ago"}" %> </span>
+              </i>
       </legend>
       <div id='postcontent'>
         <%= post.message %><br>
