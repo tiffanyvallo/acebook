@@ -16,14 +16,6 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, length: { minimum: 6 }, allow_nil: true
 
   DEFAULT_AVATAR = "default_avatar.png"
-  def avatar
-    if avatar.attached?
-      avatar
-    else
-      DEFAULT_AVATAR
-    end
-  end
-
 
   private
 
