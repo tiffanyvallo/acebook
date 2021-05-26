@@ -8,9 +8,13 @@
   </head>
   <body>
 
-  <a id="edit_profile" href="<%= edit_user_path(current_user) %>">
-    <button>Edit Profile</button>
-  </a>
+  <ul>
+    <div id='edit_profile'> <li> <%= link_to "Edit Profile", edit_user_path(current_user) %> </div>
+  </ul>
+
+  <%# <a href="<%= edit_user_path(current_user) % >"> %>
+    <%# <button id="edit_profile">Edit Profile</button> %>
+  <%# </a> %>
 
 <%# --------- Personal Details -------- %>
     <% provide(:title, @user.name) %>
@@ -29,11 +33,16 @@
 <%# ----------- Posts ------------------- %>
 <%# Users personal posts (found via user_id) %>
 
-    <script>
-      hide_profile()
-      // if (@user.id !== current_user) {
-      //   hide_editProfile()
-      // }
-    </script>
+<%# ATTEMPT AT HIDING EDIT PROFILE BUTTON%>
+  <script>
+    if (@user.id !== current_user.id) {
+      hide_editProfile()
+    }
+  </script>
+
+  <script>
+    hide_profile()
+  </script>
+    
   </body>
 </html>
