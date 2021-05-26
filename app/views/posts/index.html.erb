@@ -38,16 +38,11 @@
     </form>
     <br>
 
-    <% like_count = 0 %>
-      <% @likes.each do |like| %>
-        <% like_count += 1 %>
-      <% end %>
-
         <!--- check to see if cookies theme is correct for individual likes -->
         <div class="likes-<%= cookies[:theme] %>">
           <div id='postlikes'>
             <%= link_to "❤️", post_likes_path(post), method: :post %>
-            <%= like_count %> like<%= 's' if like_count != 1 %>
+            <%= post.likes.count %> like<%= 's' if post.likes.count != 1 %>
           </div>
           <div id='postcomments'>
             <%= post.comments.count %> Comment<%= 's' if post.comments.count != 1 %><%= ':' if post.comments.count != 0 %>
