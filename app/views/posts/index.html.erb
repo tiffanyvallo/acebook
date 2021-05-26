@@ -56,16 +56,16 @@
 
         <!--- check to see if cookies theme is correct for individual likes -->
         <div class="likes-<%= cookies[:theme] %>">
-          <%= post.message %>,
-          <%= like_count %>
-          like<%= 's' if like_count != 1 %>
+        
+          
           <%= link_to "❤️", post_likes_path(post), method: :post %>
-          <br>
-          <br>
-          <h2>
-            <%= post.comments.count %>
-            Comments</h2>
+          <h4>  <%= like_count %> like<%= 's' if like_count != 1 %>  <%= post.comments.count %>Comments</h4>
 
+          
+          </div>
+          
+          
+          <div class="display-comments-<%= cookies[:theme] %>">
           <% post.comments.each do |comment| %>
             <% commenter = 'anonymous' %>
               <% @users.each do |user| %>
@@ -76,9 +76,10 @@
                   <%= "📣 #{commenter}" %>
                 </b>
                 <%= "#{time_ago_in_words(comment.created_at)} #{"ago"}" %>
-                <br>
+                
               <% end %>
               <br>
+           </div>
 
               <div class="comments-<%= cookies[:theme] %>">
                 <%= form_for([post, post.comments.build]) do |f| %>
@@ -88,7 +89,7 @@
                 <% end %>
               </p>
             </div>
-          </div>
+          
 
         </div>
       </div>

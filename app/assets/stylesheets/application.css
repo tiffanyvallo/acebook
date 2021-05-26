@@ -128,7 +128,6 @@ body.dark {
 }
 
 .likes-dark {
-  padding: 10px;
   margin: 10px;
   width: 30%;
   align-self: left;
@@ -138,4 +137,9 @@ body.dark {
   width: 100%;
   font-family: Helvetica, sans-serif;
   border: none;
+}
+
+.display-comments-dark {
+  width: 30%;
+  align-self: left;
 }
