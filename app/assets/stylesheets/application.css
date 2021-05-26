@@ -20,13 +20,10 @@
 
 
 body.light {
-
   background-color: #f0f2f5;
-  /* background-color:#a7effa; */
   color: #1c1e21;
   font-family: helvetica, sans-serif; 
   text-align: left;
-
 }
 
 body.dark {
@@ -37,17 +34,13 @@ body.dark {
 }
 
 .posts {
-
   background-color: white;
-
   margin: auto;
   width: 50%;
   border: 1px solid rgba(48, 43, 49, 0.365);
   padding: 10px;
   box-shadow: 0 30px 40px rgba(0,0,0,.1);
   border-radius: 10px;
-  
-
 }
 
 .img-responsive {
@@ -56,7 +49,7 @@ body.dark {
 
 .dark_mode {
   width: 80px;
-  height:50px;
+  height: 50px;
   background-color: #f0f2f5;
   border: 30px;
   border-radius: 20%;
@@ -74,7 +67,7 @@ body.dark {
 
 .light_mode {
   width: 80px;
-  height:50px;
+  height: 50px;
   background-color: #81828d;
   border: 30px;
   border-radius: 20%;
@@ -93,13 +86,12 @@ body.dark {
 .posts-light {
   background-color: rgb(177, 201, 247);
   color: black;
-  text-align: center;
   padding: 10px;
   margin: auto;
   width: 50%;
   height: auto;
-  
 }
+
 .posts-dark {
   background-color: rgb(129, 129, 241);
   color: black;
@@ -116,34 +108,13 @@ body.dark {
   padding: 1px;
 }
 
-.likes-light{
-  padding: 10px;
-  margin: 10px;
-  width: 30%;
-  align-self: left;
-}
-
-.likes-dark {
-  margin: 10px;
-  width: 30%;
-  align-self: left;
-}
-
 .comment-form {
   width: 100%;
   font-family: Helvetica, sans-serif;
   border: none;
 }
 
-.display-comments-dark {
-  width: 30%;
-  align-self: left;
-}
-
 /* NAV BAR */
- 
-
-
 
 #titlebar {
   margin:0px; 
