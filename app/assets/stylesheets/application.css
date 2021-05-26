@@ -30,7 +30,7 @@ body.light {
 }
 
 body.dark {
-  background-color: #0f0946;
+  background-color: #1F2833;
   color: #ffffff;
   font-family: helvetica, sans-serif; 
   text-align: left;
@@ -54,24 +54,6 @@ body.dark {
   max-width: 60px;
 }
 
-#title {
-  padding-bottom: 50px;
-  margin-bottom: 50px;
-  font-size: 35px;
-  font-weight: bold;
-  color:#3590de;
-  /* position:fixed;
-  top: 10px; */
-
-
-}
-
-#titlebar {
-  background-color: white;
-  position: fixed;
-  top: 0;
-}
-
 .dark_mode {
   width: 80px;
   height:50px;
@@ -86,7 +68,7 @@ body.dark {
 }
 
 .dark_mode:hover {
-  background-color: #5f6dec;
+  background-color: #ff4c00;
   color: white;
 }
 
@@ -104,7 +86,7 @@ body.dark {
 }
 
 .light_mode:hover {
-  background-color: #f0f2f5;
+  background-color: #ff4c00;
   color: white;
 }
 
@@ -161,14 +143,58 @@ body.dark {
 /* NAV BAR */
  
 
+
+
+#titlebar {
+  margin:0px; 
+  text-align:center; 
+  width: 100%; 
+  background-color: white; 
+  position: fixed;
+  top: 0;
+}
+
+#title {
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+  font-size: 35px;
+  font-weight: bold;
+  color:#3590de;
+  position:fixed;
+  top: 10px;
+
+
+}
+
+#logo {
+  display:inline-block; 
+  float: left;
+}
+
+#navbar a {
+  color:#3590de;
+  font-weight: bold; 
+  padding: 6px 20px; 
+  border-bottom: 0px solid #3590de; 
+  text-decoration: none; 
+  transition: border-bottom 0.2s linear 0s;
+}
+
+#navbar a:hover {
+  color:#054976; 
+  background:transparent; 
+  text-decoration:none; 
+  border-bottom:7px solid #3590de;}
+
 #navbar ul {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding:22px 6px 16px 0;
   overflow: hidden;
   position:fixed;
   top: 0;
-  width: 100%;
+  right: 10px;
+  width: 50%;
 }
 
 #navbar li {
@@ -177,6 +203,17 @@ body.dark {
 
 #navbar li a {
   display: block;
-  padding: 8px;
-  /* background-color: #dddddd; */
+  padding-right: 15px;
+}
+
+#footer {
+  padding-bottom: 6px;
+  padding-top: 6px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  color: #3590de;
+  text-align: right;
 }

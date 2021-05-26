@@ -34,9 +34,10 @@
     </script>
 
     <div id='titlebar'>
-      <%= link_to image_tag("logo_no_bg.png", :class => "img-responsive"), root_path %>
-
-      <span id="title">Acebook</span>
+      <div id="logo">
+        <%= link_to image_tag("logo_no_bg.png", :class => "img-responsive"), root_path %>
+        <span id="title">Acebook</span>
+      </div>
 
       <div id='navbar'>
         <ul>
@@ -58,7 +59,7 @@
     <%= yield %>
 
     <div id='footer'>
-
+      © <a href="https://github.com/dominicmeddick/acebook-smokin-meats">Smokin’Meats</a>🥩
     </div>
   </body>
 </html>
