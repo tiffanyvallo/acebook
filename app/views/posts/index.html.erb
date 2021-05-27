@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en" class="light">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-  </head>
   <body div="body">
   
     <label class="switch">
@@ -30,18 +22,15 @@
 <br>
 <div class="posts">
   <form action='/posts/<%= post.id %>/like'>
-    <fieldset>
-      <legend id='postname'>
+      <div id='postname'>
         <% @users.each do |user| %>
-        <div class="mini-avatar">
           <% if user.id == post.user_id %>
             <% if user.avatar.attached? %>
-              <%=image_tag(user.avatar) %>
+              <%=image_tag(user.avatar, :class => "post-avatar") %>
             <% else %>
-              <%=image_tag("default_avatar.png")%>
+              <%=image_tag("default_avatar.png", :class => "post-avatar")%>
             <% end %>
           <% end %>
-        </div>
         <div class="poster-name-link">
             <%= user.name if user.id == post.user_id %>
         </div>
@@ -50,7 +39,7 @@
             <i>
                 <span id='timeago'> <%= " posted #{time_ago_in_words(post.created_at)} #{"ago"}" %> </span>
               </i>
-      </legend>
+      </div>
       <div id='postcontent'>
         <%= post.message %><br>
         <% if post.image.attached? %>
@@ -59,7 +48,6 @@
           <% end %>
         <% end %>
       </div>
-    </fieldset>
     <br>
       <!-- Edit post button, does not link yet, to review if we still want this -->
       <% if false %>
@@ -83,6 +71,7 @@
           <% post.comments.each do |comment| %>
             <% commenter = 'anonymous' %>
             <% @users.each do |user| %>
+            <div class="each-comment">
               <% commenter = user.name if user.id == comment.user_id %><% end %>
               <b>
                 <%= "#{commenter} 🗣 " %>
@@ -92,7 +81,9 @@
                 <span id='timeago'> <%= "- #{time_ago_in_words(comment.created_at)} #{"ago"}" %> </span>
               </i>
               <br>
+              </div>
             <% end %>
+        
             <br>
         </div>
 
@@ -100,7 +91,7 @@
                 <%= form_for([post, post.comments.build]) do |f| %>
                 <p>
                   <%= f.text_area :body, class: 'comment-form', placeholder: "Add a comment..." %>
-                  <%= f.submit :submit, class: 'post-comment', value: "Post" %>
+                  <%= f.submit :submit, class: "btn btn-primary btn-block btn-large", value: "Post" %>
                 <% end %>
               </p>
             </div>
@@ -113,4 +104,3 @@
     hide_timeline()
   </script>
   </body>
-</html>
