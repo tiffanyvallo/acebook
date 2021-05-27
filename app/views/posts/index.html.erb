@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,81 +7,106 @@
     <title>Document</title>
   </head>
   <body div="body">
-
-    <% flash.each do |type, msg| %>
-      <div>
-        <%= msg %>
+  
+    <label class="switch">
+      <div class="wrapper">
+        <div class="toggle">
+          <input class="toggle-input" type="checkbox"/>
+          <div class="toggle-bg"></div>
+          <div class="toggle-switch">
+            <div class="toggle-switch-figure"></div>
+            <div class="toggle-switch-figureAlt"></div>
+          </div>
+        </div>
       </div>
-    <% end %>
+    </label>
 
-    <ul>
-      <li><%= link_to "Profile", current_user %>
-      <li><%= link_to "Log out", 'logout', method: :delete %>
-    </ul>
+    <%= yield %>
 
-    <%= link_to new_post_path do %>
-    New post
-  <% end %>
 </br>
 <% @posts.reverse.each do |post| %>
 </br>
 
 <br>
-<div class="posts-<%= cookies[:theme] %>">
+<div class="posts">
   <form action='/posts/<%= post.id %>/like'>
-    <%= post.message %><br>
-    <% if post.image.attached? %>
-      <% post.image.each do |pic|%>
-
-        <image src="<%=(url_for(pic))%>" class="post-image">
-
+    <fieldset>
+      <legend id='postname'>
+        <% @users.each do |user| %>
+        <div class="mini-avatar">
+          <% if user.id == post.user_id %>
+            <% if user.avatar.attached? %>
+              <%=image_tag(user.avatar) %>
+            <% else %>
+              <%=image_tag("default_avatar.png")%>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="poster-name-link">
+            <% if user.id == post.user_id %>
+            <% user_name = user.name  %>
+            <% user_id = user.id %>
+            <% end %>
+            <a href='/users/<%=user_id%>'><%= user_name %></a>
+        </div>
         <% end %>
-      <% end %>
-      <br>
+         <br>
+            <i>
+                <span id='timeago'> <%= " posted #{time_ago_in_words(post.created_at)} #{"ago"}" %> </span>
+              </i>
+      </legend>
+      <div id='postcontent'>
+        <%= post.message %><br>
+        <% if post.image.attached? %>
+          <% post.image.each do |pic|%>
+            <img src="<%=(url_for(pic))%>" class="post-image">
+          <% end %>
+        <% end %>
+      </div>
+    </fieldset>
+    <br>
       <!-- Edit post button, does not link yet, to review if we still want this -->
       <% if false %>
         <%= link_to 'Edit', edit_post_path(post) %>
       <% end %>
-
     </form>
     <br>
 
-    <% @users.each do |user| %>
-      <%= user.name if user.id == post.user_id %>
-    <% end %>
-
-    <% like_count = 0 %>
-      <% @likes.each do |like| %>
-        <% like_count += 1 %><% end %>
 
         <!--- check to see if cookies theme is correct for individual likes -->
-        <div class="likes-<%= cookies[:theme] %>">
-        
-          
-          <%= link_to "❤️", post_likes_path(post), method: :post %>
-          <h4>  <%= like_count %> like<%= 's' if like_count != 1 %>  <%= post.comments.count %>Comments</h4>
-
-          
+        <div class="likes">
+          <div id='postlikes'>
+            <%= link_to "❤️", post_likes_path(post), method: :post %>
+            <%= post.likes.count %> like<%= 's' if post.likes.count != 1 %>
           </div>
-          
-          
-          <div class="display-comments-<%= cookies[:theme] %>">
+          <div id='postcomments'>
+            <%= post.comments.count %> Comment<%= 's' if post.comments.count != 1 %><%= ':' if post.comments.count != 0 %>
+          </div>
+        </div>
+        <div class="display-comments">
           <% post.comments.each do |comment| %>
             <% commenter = 'anonymous' %>
               <% @users.each do |user| %>
-                <% commenter = user.name if user.id == comment.user_id %><% end %>
-
-                <%= "#{comment.body}" %>
-                <b>
-                  <%= "📣 #{commenter}" %>
-                </b>
-                <%= "#{time_ago_in_words(comment.created_at)} #{"ago"}" %>
-                
+                <% if user.id == comment.user_id %>
+                <% commenter = user.name %>
+                <% commenter_id = user.id %>
+                <a href='/users/<%=commenter_id%>'><%= commenter %></a>
+                🗣 <%= comment.body %>
+                <% end %>
+              <b>
+              </b>
               <% end %>
+              <i>
+                <span id='timeago'> <%= "- #{time_ago_in_words(comment.created_at)} #{"ago"}" %> </span>
+                <p> <%= button_to "Delete Comment",[comment.post, comment], method: :delete, data: { confirm: "Are you sure" } %></p>
+              </i>
               <br>
-           </div>
+            <% end %>
+            <br>
+        </div>
+        
 
-              <div class="comments-<%= cookies[:theme] %>">
+              <div class="comments">
                 <%= form_for([post, post.comments.build]) do |f| %>
                 <p>
                   <%= f.text_area :body, class: 'comment-form', placeholder: "Add a comment..." %>
@@ -89,10 +114,13 @@
                 <% end %>
               </p>
             </div>
-          
-
         </div>
       </div>
     <% end %>
+
+  
+  <script>
+    hide_timeline()
+  </script>
   </body>
 </html>

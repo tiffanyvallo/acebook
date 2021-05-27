@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @posts = @user.posts.order(created_at: :desc)
     # Nav bar will need user profile link in this html
   end
 
@@ -22,17 +23,25 @@ class UsersController < ApplicationController
   end
 
   def update
-    show
-    if current_user.update(user_params)
-      flash[:success] = "Profile updated"
-      redirect_to current_user
-    else
-      render 'edit'
+    # show
+  
+    if current_user.authenticate(user_params[:password])
+      current_user.update(user_params)
+      log_in current_user
+        flash[:success] = "Profile updated"
+        
+        redirect_to "/users/#{current_user.id}"
+    else 
+      redirect_to "/users/#{current_user.id}/edit"
     end
-    # current_user.update(user_params)
-    # redirect_to current_user
+    
+  end
+
+  def user_posts
+    @posts = current_user.posts.order(created_at: :desc)
   end
   
+
   private
   
     def user_params
