@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,30 +8,78 @@
   </head>
   <body>
 
-  <a class="edit-profile" href="<%= edit_user_path(current_user) %>">
-    <button>Edit Profile</button>
-  </a>
+
+    <label class="switch">
+      <div class="wrapper">
+        <div class="toggle">
+          <input class="toggle-input" type="checkbox"/>
+          <div class="toggle-bg"></div>
+          <div class="toggle-switch">
+            <div class="toggle-switch-figure"></div>
+            <div class="toggle-switch-figureAlt"></div>
+          </div>
+        </div>
+      </div>
+    </label>
+
+    <%= yield %>
 
 <%# --------- Personal Details -------- %>
     <% provide(:title, @user.name) %>
     <h1><%= @user.name %></h1>
-      <div>
-        <% if current_user.avatar.attached? %>
-          <img src="<%=(url_for(@user.avatar))%>" %="%">
-        <% else %>
-          <img src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg">
-        <% end %>
+      <div class="profile-picture">
+          <% if @user.avatar.attached? %>
+              <%=image_tag(@user.avatar) %>
+          <% else %>
+            <%=image_tag("default_avatar.png")%>
+          <% end %>
       </div>
     <h2>
       About me:
     </h2>
-    <h3 class="bio"><%=current_user.bio%></h3>
+    <h3 class="bio"><%=@user.bio%></h3>
 <%# ----------- Posts ------------------- %>
-<%# Users personal posts (found via user_id) %>
+<%# Users personal posts %>
+<div class="profile-posts"> 
+  <% @posts.each do |post| %>
+  <div class="posts-<%= cookies[:theme] %>">
+  <form action='/posts/<%= post.id %>/like'>
+    <fieldset>
+      <legend id='profile-postname'>
+        <div class="mini-avatar">
+          <% if @user.id == post.user_id %>
+            <% if @user.avatar.attached? %>
+              <%=image_tag(@user.avatar) %>
+            <% else %>
+              <%=image_tag("default_avatar.png")%>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="poster-name">
+            <%= @user.name if @user.id == post.user_id %>
+            <br>
+            <i>
+                <span id='profile-timeago'> <%= " posted #{time_ago_in_words(post.created_at)} #{"ago"}" %> </span>
+              </i>
+        </div>
+      </legend>
+      <div class='profile-postcontent'>
+        <%= post.message %><br>
+        <% if post.image.attached? %>
+          <% post.image.each do |pic|%>
+            <img src="<%=(url_for(pic))%>" class="post-image">
+          <% end %>
+        <% end %>
+      <% end %>
+      </div>
+    </fieldset>
+    </div>
+    </div>
 
-
-    <script>
-      hide_profile()
-    </script>
+  <script>
+    hide_profile()
+  </script>
+    
   </body>
 </html>
+
