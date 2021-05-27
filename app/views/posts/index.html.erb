@@ -43,7 +43,11 @@
           <% end %>
         </div>
         <div class="poster-name-link">
-            <%= user.name if user.id == post.user_id %>
+            <% if user.id == post.user_id %>
+            <% user_name = user.name  %>
+            <% user_id = user.id %>
+            <% end %>
+            <a href='/users/<%=user_id%>'><%= user_name %></a>
         </div>
         <% end %>
          <br>
