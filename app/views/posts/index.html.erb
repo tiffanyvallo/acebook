@@ -60,7 +60,7 @@
         <br>
       
       <!--- check to see if cookies theme is correct for individual likes -->
-      <div class="info">
+      
         <div class="likes">
           <div id='postlikes'>
             <%= link_to "❤️", post_likes_path(post), method: :post %>
@@ -72,7 +72,7 @@
           <%= post.comments.count %>
           Comment<%= 's' if post.comments.count != 1 %><%= ':' if post.comments.count != 0 %>
         </div>
-
+<div class="info">
         <div class="display-comments">
           <% post.comments.each do |comment| %>
             <% commenter = 'anonymous' %>
@@ -91,10 +91,9 @@
                 <br>
 
               <% end %>
-
+      </div>    
               <br>
             </div>
-
             <div class="comments">
               <%= form_for([post, post.comments.build]) do |f| %>
               <p>
@@ -104,7 +103,7 @@
             </p>
           </div>
         </div>
-      </div>
+      
       </div>
     </div>
   <% end %>
