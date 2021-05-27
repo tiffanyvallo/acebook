@@ -21,7 +21,7 @@ RSpec.feature "Edit profile", type: :feature do
     #---------------------
 
     click_link 'Profile'
-    click_link 'Edit Profile'
+    click_link 'Settings'
     fill_in "Name", with: "Joe Blogs"
     fill_in "Password", with: "password"
     fill_in "Confirmation", with: "password"
