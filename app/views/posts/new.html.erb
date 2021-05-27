@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,15 +8,32 @@
   </head>
   <body>
 
-    <%= form_for @post do |form| %>
-    <%= form.label :message %>
-    <%= form.text_field :message %>
+    <label class="switch">
+      <div class="wrapper">
+        <div class="toggle">
+          <input class="toggle-input" type="checkbox"/>
+          <div class="toggle-bg"></div>
+          <div class="toggle-switch">
+            <div class="toggle-switch-figure"></div>
+            <div class="toggle-switch-figureAlt"></div>
+          </div>
+        </div>
+      </div>
+    </label>
 
-    <%= form.label :photo %>
-    <%= form.file_field :image, multiple: true %>
+    <%= yield %>
 
-    <%= form.submit "Submit" %>
-  <% end %>
+    <div class="form">
+      <%= form_for @post do |form| %>
+      <%= form.label :message %>
+      <%= form.text_field :message, placeholder:"Message" %>
+
+      <%= form.label :photo %>
+      <%= form.file_field :image, multiple: true, placeholder:"Photo" %>
+
+      <%= form.submit "Submit", class:"btn btn-primary btn-block btn-large" %>
+    <% end %>
+  </div>
 
   <script>
     hide_newpost()

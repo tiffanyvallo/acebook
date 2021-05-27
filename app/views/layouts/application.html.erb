@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
   </head>
 
-  <body class="<%= cookies[:theme] %>">
+  <body>
 
     <script>
       function hide_timeline() {
@@ -57,11 +57,13 @@
     </div>
 <br>
 <br>
+   <!--
     <% if cookies[:theme] == "light" %>
       <button class="dark_mode"><%= link_to "Dark mode", root_path(theme: "dark") %></button>
     <% else %>
       <button class="light_mode"><%= link_to "Light mode", root_path(theme: "light") %></button>
     <% end %>
+    -->
 
   <div id="yield">
     <% flash.each do |type, msg| %>

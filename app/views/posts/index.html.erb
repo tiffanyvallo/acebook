@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,13 +7,28 @@
     <title>Document</title>
   </head>
   <body div="body">
+  
+    <label class="switch">
+      <div class="wrapper">
+        <div class="toggle">
+          <input class="toggle-input" type="checkbox"/>
+          <div class="toggle-bg"></div>
+          <div class="toggle-switch">
+            <div class="toggle-switch-figure"></div>
+            <div class="toggle-switch-figureAlt"></div>
+          </div>
+        </div>
+      </div>
+    </label>
+
+    <%= yield %>
 
 </br>
 <% @posts.reverse.each do |post| %>
 </br>
 
 <br>
-<div class="posts-<%= cookies[:theme] %>">
+<div class="posts">
   <form action='/posts/<%= post.id %>/like'>
     <fieldset>
       <legend id='postname'>
@@ -53,8 +68,9 @@
     </form>
     <br>
 
+
         <!--- check to see if cookies theme is correct for individual likes -->
-        <div class="likes-<%= cookies[:theme] %>">
+        <div class="likes">
           <div id='postlikes'>
             <%= link_to "❤️", post_likes_path(post), method: :post %>
             <%= post.likes.count %> like<%= 's' if post.likes.count != 1 %>
@@ -63,7 +79,7 @@
             <%= post.comments.count %> Comment<%= 's' if post.comments.count != 1 %><%= ':' if post.comments.count != 0 %>
           </div>
         </div>
-        <div class="display-comments-<%= cookies[:theme] %>">
+        <div class="display-comments">
           <% post.comments.each do |comment| %>
             <% commenter = 'anonymous' %>
             <% @users.each do |user| %>
@@ -80,7 +96,7 @@
             <br>
         </div>
 
-              <div class="comments-<%= cookies[:theme] %>">
+              <div class="comments">
                 <%= form_for([post, post.comments.build]) do |f| %>
                 <p>
                   <%= f.text_area :body, class: 'comment-form', placeholder: "Add a comment..." %>
