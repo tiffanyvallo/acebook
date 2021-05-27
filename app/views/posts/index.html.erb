@@ -90,6 +90,7 @@
               <%= comment.body %>
               <i>
                 <span id='timeago'> <%= "- #{time_ago_in_words(comment.created_at)} #{"ago"}" %> </span>
+                <p> <%= button_to "Delete Comment",[comment.post, comment], method: :delete, data: { confirm: "Are you sure" } %></p>
               </i>
               <br>
             <% end %>
