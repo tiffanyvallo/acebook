@@ -1,15 +1,41 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the UsersHelper. For example:
-#
-# describe UsersHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
-# RSpec.describe UsersHelper, type: :helper do
-#   pending "add some examples to (or delete) #{__FILE__}"
-# end
+def sign_up_john
+  visit "/"
+  click_button "Sign Up"
+  fill_in "Name", with: "John Doe"
+  fill_in "Email", with: "jdoe@email.com"
+  fill_in "DOB", with: "1992-01-01" 
+  fill_in "Password", with: "password"
+  fill_in "Password Confirmation", with: "password"
+  click_button "Create Account"
+end
+
+def log_in_john
+  fill_in "Email", with: "jdoe@email.com"
+  fill_in "Password", with: "password"
+  click_button "Login"
+end
+
+def sign_up_jane
+  click_button "Sign Up"
+  fill_in "Name", with: "Jane Doe"
+  fill_in "Email", with: "janedoe@email.com"
+  fill_in "DOB", with: "1994-01-01" 
+  fill_in "Password", with: "password"
+  fill_in "Password Confirmation", with: "password"
+  click_button "Create Account"
+end
+
+def log_in_jane
+  fill_in "Email", with: "janedoe@email.com"
+  fill_in "Password", with: "password"
+  click_button "Login"
+end
+
+def post
+  visit "/posts"
+  click_link "New post"
+  fill_in "Message", with: "Hello, world!"
+  click_button "Submit"
+end

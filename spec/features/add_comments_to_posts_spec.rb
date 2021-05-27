@@ -2,23 +2,12 @@ require 'rails_helper'
 
 RSpec.feature "anonymous can comment on the post", type: :feature do
   scenario "comments appear under the posts" do
-    visit "/login"
-    click_button "Sign Up"
-    fill_in "Name", with: "John Doe"
-    fill_in "Email", with: "jdoe@email.com"
-    fill_in "DOB", with: "1992-01-01" 
-    fill_in "Password", with: "password"
-    fill_in "Password Confirmation", with: "password"
-    click_button "Create Account"
-    #---------------------
 
-    fill_in "Email", with: "jdoe@email.com"
-    fill_in "Password", with: "password"
-    click_button "Login"
-    visit "/posts"
-    click_link "New post"
-    fill_in "Message", with: "Hello, world!"
-    click_button "Submit"
+    sign_up_john
+
+    log_in_john
+
+    post
     # fill_in "Name", with: "Joe"
     fill_in "comment[body]", with: "Hello, person"
     click_button "Post"
