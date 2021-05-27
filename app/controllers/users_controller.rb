@@ -23,13 +23,19 @@ class UsersController < ApplicationController
   end
 
   def update
-    show
-    if current_user.update(user_params)
-      flash[:success] = "Profile updated"
-      redirect_to current_user
-    else
-      render 'edit'
+    # show
+  
+    if current_user.authenticate(user_params[:password])
+      if current_user.update(user_params)
+        flash[:success] = "Profile updated"
+        redirect_to current_user
+      else
+        render 'edit'
+      end
+    else 
+      redirect_to "/users/#{current_user.id}/edit"
     end
+    
   end
 
   def user_posts
