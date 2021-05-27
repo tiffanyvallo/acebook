@@ -86,12 +86,16 @@
         <div class="display-comments">
           <% post.comments.each do |comment| %>
             <% commenter = 'anonymous' %>
-            <% @users.each do |user| %>
-              <% commenter = user.name if user.id == comment.user_id %><% end %>
+              <% @users.each do |user| %>
+                <% if user.id == comment.user_id %>
+                <% commenter = user.name %>
+                <% commenter_id = user.id %>
+                <a href='/users/<%=commenter_id%>'><%= commenter %></a>
+                🗣 <%= comment.body %>
+                <% end %>
               <b>
-                <%= "#{commenter} 🗣 " %>
               </b>
-              <%= comment.body %>
+              <% end %>
               <i>
                 <span id='timeago'> <%= "- #{time_ago_in_words(comment.created_at)} #{"ago"}" %> </span>
               </i>
@@ -99,6 +103,7 @@
             <% end %>
             <br>
         </div>
+        
 
               <div class="comments">
                 <%= form_for([post, post.comments.build]) do |f| %>
