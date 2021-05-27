@@ -8,14 +8,6 @@
   </head>
   <body>
 
-  <ul>
-    <%# <div id='edit_profile'> <li> <%= link_to "Edit Profile", edit_user_path(current_user) % > </div> %>
-  </ul>
-
-  <%# <a href="<%= edit_user_path(current_user) % >"> %>
-    <%# <button id="edit_profile">Edit Profile</button> %>
-  <%# </a> %>
-
 <%# --------- Personal Details -------- %>
     <% provide(:title, @user.name) %>
     <h1><%= @user.name %></h1>
