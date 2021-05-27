@@ -177,32 +177,37 @@
 }
   
 #postcontent {
-  text-align: center;
-  padding: 10px;
+  text-align: left;
+  padding-top: 20%;
+  padding-left: 5%;
   margin: auto;
   width: 50%;
   height: auto;
+ 
 }
   
 #postname {
   font-size: large;
   font-weight: bold;
   text-align: left;
-  vertical-align:top ;
+  top: 7%;
+  z-index: 7;
+  position: absolute;
   .post-avatar {
     display:inline-block;
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     margin-right: 8px;
     border-radius:50%;
     border: 1px solid #efefef;
-    position:static, top; 
+    top: 5%;
+    position:static; 
   }
 
   .poster-name-link {
     display:inline-block;
     margin-right:0px;
-    vertical-align: 10px;
+    vertical-align: 25px;
     font-size: larger;
   }
 
@@ -231,8 +236,31 @@
   .comments-form {
     z-index: 4;
   }
-  .likes {
+  .post-image {
+    max-width: 50%;
+    max-height: 50%;
+    // center image in post card
+    padding: 1px;
+  }
+  
+  .comment-textbox {
+    width: 100%;
+    font-family: Helvetica, sans-serif;
+    border: none;
+  
+  }
+  .comments-likes-count {
     z-index: 4;
+    font-size: medium;
+    padding-right: 3%;
+    float: left;
+
+  //   .postlikes {
+  //   float: left;
+  //   }
+  //   .postcomments {
+  //     float: right;
+  //   }
   }
 }
 .card:hover {

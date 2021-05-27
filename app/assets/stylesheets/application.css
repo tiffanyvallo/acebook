@@ -92,18 +92,6 @@
 }
 */
 
-.post-image {
-  max-width: 150px;
-  max-height: 150px;
-  padding: 1px;
-}
-
-.comment-form {
-  width: 100%;
-  font-family: Helvetica, sans-serif;
-  border: none;
-}
-
 /* NAV BAR */
 
 #titlebar {
