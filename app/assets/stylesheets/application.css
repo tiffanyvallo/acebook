@@ -20,25 +20,6 @@
  }
 
 
-
-
-.posts {
-  background-color: white;
-  margin: auto;
-  width: 50%;
-  border: 1px solid rgba(48, 43, 49, 0.365);
-  padding: 10px;
-  box-shadow: 0 30px 40px rgba(0,0,0,.1);
-  border-radius: 10px;
-  box-shadow: 0 4px 8px 0 rgba(2, 223, 39, 0.938);
-  transition: 0.3s;
-}
-
-.posts:hover {
-  box-shadow: 0 8px 16px 0 rgba(109, 223, 16, 0.979);
-}
-
-
 .img-responsive {
   max-width: 60px;
 }
