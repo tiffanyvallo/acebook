@@ -125,6 +125,7 @@
   top: 10px;
 
 
+
 }
 
 #logo {
@@ -156,6 +157,7 @@
   top: 0;
   right: 10px;
   width: 50%;
+  z-index: 999;
 }
 
 #navbar li {

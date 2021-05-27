@@ -62,7 +62,7 @@
       <!--- check to see if cookies theme is correct for individual likes -->
       
         <div class="likes">
-          <div id='postlikes'>
+          <div class='postlikes'>
             <%= link_to "❤️", post_likes_path(post), method: :post %>
             <%= post.likes.count %>
             like<%= 's' if post.likes.count != 1 %>
@@ -94,7 +94,7 @@
       </div>    
               <br>
             </div>
-            <div class="comments">
+            <div class="comments-form">
               <%= form_for([post, post.comments.build]) do |f| %>
               <p>
                 <%= f.text_area :body, class: 'comment-form', placeholder: "Add a comment..." %>
