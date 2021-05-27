@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // add css for light and dark color-mode
 
 
-  let toggleSwitch = document.querySelector(".toggle-mode")
+  let toggleSwitch = document.querySelector(".toggle-input")
   let myLocalStorage = window.localStorage
   let userSwitch = toggleSwitch.unchecked
   let userColorMode = myLocalStorage.getItem("class")
