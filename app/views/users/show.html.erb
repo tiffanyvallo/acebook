@@ -26,7 +26,7 @@
 
 <%# --------- Personal Details -------- %>
     <% provide(:title, @user.name) %>
-    <h1><%= @user.name %></h1>
+   
       <div class="profile-picture">
           <% if @user.avatar.attached? %>
               <%=image_tag(@user.avatar) %>
@@ -34,17 +34,23 @@
             <%=image_tag("default_avatar.png")%>
           <% end %>
       </div>
-    <h2>
-      About me:
-    </h2>
-    <h3 class="bio"><%=@user.bio%></h3>
+      <div class="user-info">
+          <h1><%= @user.name %></h1>  
+          <h2>
+            About me:
+          </h2>
+          <h3 class="bio"><%=@user.bio%></h3>
+      </div>
 <%# ----------- Posts ------------------- %>
 <%# Users personal posts %>
 <div class="profile-posts"> 
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
   <% @posts.each do |post| %>
-  <div class="posts-<%= cookies[:theme] %>">
+  
+  
   <form action='/posts/<%= post.id %>/like'>
-    <fieldset>
+    <fieldset class="card">
       <legend id='profile-postname'>
         <div class="mini-avatar">
           <% if @user.id == post.user_id %>
@@ -62,19 +68,32 @@
                 <span id='profile-timeago'> <%= " posted #{time_ago_in_words(post.created_at)} #{"ago"}" %> </span>
               </i>
         </div>
+  
+        
+        <% if post.image.attached? %>
+          <% post.image.each do |pic|%>
+            <img src="<%=(url_for(pic))%>" class="post-image1">
+          <% end %>
+          
+        <% end %>
       </legend>
-      <div class='profile-postcontent'>
-        <%= post.message %><br>
+        
+        <div class ="info"> 
+        <h1><%= post.message.upcase%></h1>
+        
         <% if post.image.attached? %>
           <% post.image.each do |pic|%>
             <img src="<%=(url_for(pic))%>" class="post-image">
           <% end %>
+          
         <% end %>
+        </div>
          </fieldset>
       <% end %>
-      </div>
+      
     </div>
     </div>
+   
 
   <script>
     hide_profile()

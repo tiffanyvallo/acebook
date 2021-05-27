@@ -5,121 +5,363 @@
 
 /* The switch - the box around the slider */
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-  }
-  
-  /* Hide default HTML checkbox */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  /* The slider */
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  input:checked + .slider {
-    background-color: #000000;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #000000;
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
-.light {
-    background-color: #f0f2f5;
-    color: #1c1e21;
-    font-family: helvetica, sans-serif; 
-    text-align: left;
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
 }
-      
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #000000;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #000000;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.light {
+  background-color: #f0f2f5;
+  color: #1c1e21;
+  font-family: helvetica, sans-serif; 
+  text-align: left;
+}
+    
 .dark {
-    background-color: #1F2833;
-    color: #ffffff;
-    font-family: helvetica, sans-serif; 
-    text-align: left;
+  background-color: #1F2833;
+  color: #ffffff;
+  font-family: helvetica, sans-serif; 
+  text-align: left;
 }
 
 .bg_image {
-    background-image: url("https://images.pexels.com/photos/1000445/pexels-photo-1000445.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-image: url("https://images.pexels.com/photos/1000445/pexels-photo-1000445.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .sign_up {
-    position:absolute;
-    top:10%;
-    right:55%;
-    left:45%;
+  position:absolute;
+  top:10%;
+  right:55%;
+  left:45%;
 }
 
 // Profile (users/show.html.erb)
+// #profile-postname {
+//     font-size: large;
+//     font-weight: bold;
+//     text-align: left;
+
+//     .mini-avatar {
+//       display:inline-block;
+//       width: 40px;
+//       height: 40px;
+//       margin-right: 8px;
+//       border-radius:50%;
+//       vertical-align: top;
+//       img{
+//         width: 100%;
+//         height: 100%;
+//         border: 1px solid #efefef;
+//         border-radius: 50%;
+      
+//       }
+//     }
+//     .poster-name {
+//       display:inline-block;
+//       margin-right:10px;
+//       vertical-align: 40%;
+
+//       #profile-timeago {
+//         color: #666666;
+//         font-size: medium;
+//       }
+//     }
+//   }
+
+/////////////////////////////////////////////////////
+// Styling for personal details
+/////////////////////////////////////////////////////
+.profile-picture{
+  position: absolute;
+  left: 400px;
+  top: 100px;
+  img{
+    border-radius: 30%;
+    width: 15%;
+  }
+}
+
+.user-info{
+  margin: auto;
+  width: 50%;
+  padding: -10%;
+  border: 3px white;
+  position: absolute;
+  left: 600px;
+  top: 100px;
+}
+
+///////////////////////////////////////////////////
+//Styling for user's posts
+///////////////////////////////////////////////////
+#profile-timeago {
+  color: #666666;
+  font-size: small;
+  font-weight: lighter;
+  margin-left: 12%;
+}
+  
+.profile-postcontent {
+  text-align: left;
+  padding-top: 20%;
+  padding-left: 5%;
+  margin: auto;
+  width: 50%;
+  height: auto;
+ 
+}
+  
 #profile-postname {
-    font-size: large;
-    font-weight: bold;
-    text-align: left;
-    .mini-avatar {
+  font-size: large;
+  font-weight: bold;
+  text-align: left;
+  top: 7%;
+  z-index: 7;
+  position: absolute;
+  .mini-avatar {
+    display:inline-block;
+    width: 60px;
+    height: 60px;
+    margin-right: 8px;
+    border-radius:50%;
+    border: 1px solid #efefef;
+    top: 5%;
+    position:static; 
+    img{
+      margin: auto;
       display:inline-block;
-      width: 40px;
-      height: 40px;
+      width: 60px;
+      height: 60px;
       margin-right: 8px;
       border-radius:50%;
-      vertical-align: top;
-      img{
-        width: 100%;
-        height: 100%;
-        border: 1px solid #efefef;
-        border-radius: 50%;
-        
-      }
-    }
-    .poster-name {
-      display:inline-block;
-      margin-right:10px;
-      vertical-align: 40%;
-
-      #profile-timeago {
-        color: #666666;
-        font-size: medium;
-      }
+      border: 1px solid #efefef;
+      top: 5%;
+      position:static; 
     }
   }
+
+  // .poster-name-link {
+  //   display:inline-block;
+  //   margin-right:0px;
+  //   vertical-align: 25px;
+  //   font-size: larger;
+  // }
+
+}
+
+
+.posts {
+  display: flex;
+  width: 90%;
+  justify-content: space-around;
+}
+
+
+.card {
+  width: 725px;
+  height: 360px;
+  border-radius: 15px;
+  padding: 1.5rem;
+  background: white;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  transition: 0.4s ease-out;
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+  z-index: 3;
+  margin: auto;
+  margin-bottom: 100px;
+  margin-top: 100px;
+  
+  .post-image1{
+    position: relative;
+    justify-content: center;
+    margin: center;
+    max-width: 500px;
+    max-height: 100px;
+    border: 5px solid;
+  
+  }
+
+  .profile-postcontent {
+    display: flex;
+    width: 90%;
+    justify-content: space-around;
+  }
+  // .comments-form {
+  //   z-index: 4;
+  // }
+  // .profile-post-image {
+    // max-width: 50%;
+    // max-height: 50%;
+    // // center image in post card
+    // padding: 1px;
+  // }
+  
+  // .comment-textbox {
+  //   width: 100%;
+  //   font-family: Helvetica, sans-serif;
+  //   border: none;
+  
+  // }
+  // .comments-likes-count {
+  //   z-index: 4;
+  //   font-size: medium;
+  //   padding-right: 3%;
+  //   float: left;
+
+  //   .postlikes {
+  //   float: left;
+  //   }
+  //   .postcomments {
+  //     float: right;
+  //   }
+  // }
+}
+
+// .post-image:hover {
+//   max-width: 100%;
+//   max-height: 100%;
+// }
+
+
+
+.card:hover {
+  transform: translateY(20px);
+  
+  #profle-timeago{
+    opacity: 0;
+  }
+  .post-image1{
+    opacity: 0;
+  }
+
+
+  // .post-image{
+  //   max-width: 50%;
+  //   max-height: 50%;
+  //   transition: max-width 0.7s linear 1s;
+  //   transition: max-height 0.7s linear 1s;
+    
+  // }
+  // .post-image:hover {
+  //   max-width: 50%;
+  //   max-height: 50%;
+  //   transition-delay: 0s;
+   
+  // }
+  
+}
+.card:hover:before {
+  opacity: 1;  
+}
+.card:hover .info {
+  opacity: 1;
+  transform: translateY(0px);
+}
+// .profile-postname{
+//   opacity: 0;
+// }
+// .profile-postname:hover {
+//   opacity: 1;
+// }
+.card:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  transition: 0.5s;
+  opacity: 0;
+  margin-bottom: auto;
+}
+.card.post-message {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 15px;
+}
+.card .info {
+  position: relative;
+  z-index: 3;
+  color: white;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.5s;
+}
+.card .info h1 {
+  margin: auto;
+  width: contain;
+  
+}
+.card .info p {
+  letter-spacing: 1px;
+  font-size: 15px;
+  margin-top: 8px;
+}
