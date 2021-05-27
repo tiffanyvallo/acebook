@@ -71,7 +71,7 @@
           <% post.comments.each do |comment| %>
             <% commenter = 'anonymous' %>
             <% @users.each do |user| %>
-            <div class="each-comment">
+            <br>
               <% commenter = user.name if user.id == comment.user_id %><% end %>
               <b>
                 <%= "#{commenter} 🗣 " %>
@@ -80,10 +80,7 @@
               <i>
                 <span id='timeago'> <%= "- #{time_ago_in_words(comment.created_at)} #{"ago"}" %> </span>
               </i>
-              <br>
-              </div>
             <% end %>
-        
             <br>
         </div>
 
