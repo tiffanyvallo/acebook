@@ -1,103 +1,115 @@
-  <body div="body">
-  
-    <label class="switch">
-      <div class="wrapper">
-        <div class="toggle">
-          <input class="toggle-input" type="checkbox"/>
-          <div class="toggle-bg"></div>
-          <div class="toggle-switch">
-            <div class="toggle-switch-figure"></div>
-            <div class="toggle-switch-figureAlt"></div>
-          </div>
+<body div="body">
+
+  <label class="switch">
+    <div class="wrapper">
+      <div class="toggle">
+        <input class="toggle-input" type="checkbox"/>
+        <div class="toggle-bg"></div>
+        <div class="toggle-switch">
+          <div class="toggle-switch-figure"></div>
+          <div class="toggle-switch-figureAlt"></div>
         </div>
       </div>
-    </label>
+    </div>
+  </label>
 
-    <%= yield %>
+  <%= yield %>
 
-</br>
-<% @posts.reverse.each do |post| %>
-</br>
+  <br>
+  <% @posts.reverse.each do |post| %>
+    <br>
 
-<br>
-<div class="posts">
-  <form action='/posts/<%= post.id %>/like'>
-      <div id='postname'>
-        <% @users.each do |user| %>
-          <% if user.id == post.user_id %>
-            <% if user.avatar.attached? %>
-              <%=image_tag(user.avatar, :class => "post-avatar") %>
-            <% else %>
-              <%=image_tag("default_avatar.png", :class => "post-avatar")%>
+    <br>
+    <div class="posts">
+      <form action='/posts/<%= post.id %>/like'>
+        <div class="card">
+          <div id='postname'>
+            <% @users.each do |user| %>
+              <% if user.id == post.user_id %>
+                <% if user.avatar.attached? %>
+                  <%=image_tag(user.avatar, :class => "post-avatar") %>
+                <% else %>
+                  <%=image_tag("default_avatar.png", :class => "post-avatar")%>
+                <% end %>
+              <% end %>
+              <div class="poster-name-link">
+                <%= user.name if user.id == post.user_id %>
+              </div>
             <% end %>
-          <% end %>
-        <div class="poster-name-link">
-            <%= user.name if user.id == post.user_id %>
-        </div>
-        <% end %>
-         <br>
+            <br>
             <i>
-                <span id='timeago'> <%= " posted #{time_ago_in_words(post.created_at)} #{"ago"}" %> </span>
-              </i>
-      </div>
-      <div id='postcontent'>
-        <%= post.message %><br>
-        <% if post.image.attached? %>
-          <% post.image.each do |pic|%>
-            <img src="<%=(url_for(pic))%>" class="post-image">
+              <span id='timeago'>
+                <%= " posted #{time_ago_in_words(post.created_at)} #{"ago"}" %>
+              </span>
+            </i>
+          </div>
+          <div id='postcontent'>
+            <%= post.message %><br>
+            <% if post.image.attached? %>
+              <% post.image.each do |pic|%>
+                <img src="<%=(url_for(pic))%>" class="post-image">
+              <% end %>
+            <% end %>
+          </div>
+          <br>
+          <!-- Edit post button, does not link yet, to review if we still want this -->
+          <% if false %>
+            <%= link_to 'Edit', edit_post_path(post) %>
           <% end %>
-        <% end %>
-      </div>
-    <br>
-      <!-- Edit post button, does not link yet, to review if we still want this -->
-      <% if false %>
-        <%= link_to 'Edit', edit_post_path(post) %>
-      <% end %>
-    </form>
-    <br>
-
-
-        <!--- check to see if cookies theme is correct for individual likes -->
+        </form>
+        <br>
+      
+      <!--- check to see if cookies theme is correct for individual likes -->
+      <div class="info">
         <div class="likes">
           <div id='postlikes'>
             <%= link_to "❤️", post_likes_path(post), method: :post %>
-            <%= post.likes.count %> like<%= 's' if post.likes.count != 1 %>
-          </div>
-          <div id='postcomments'>
-            <%= post.comments.count %> Comment<%= 's' if post.comments.count != 1 %><%= ':' if post.comments.count != 0 %>
+            <%= post.likes.count %>
+            like<%= 's' if post.likes.count != 1 %>
           </div>
         </div>
+        <div id='postcomments'>
+          <%= post.comments.count %>
+          Comment<%= 's' if post.comments.count != 1 %><%= ':' if post.comments.count != 0 %>
+        </div>
+
         <div class="display-comments">
           <% post.comments.each do |comment| %>
             <% commenter = 'anonymous' %>
-            <% @users.each do |user| %>
-            <br>
-              <% commenter = user.name if user.id == comment.user_id %><% end %>
-              <b>
-                <%= "#{commenter} 🗣 " %>
-              </b>
-              <%= comment.body %>
-              <i>
-                <span id='timeago'> <%= "- #{time_ago_in_words(comment.created_at)} #{"ago"}" %> </span>
-              </i>
-            <% end %>
-            <br>
-        </div>
+              <% @users.each do |user| %>
 
-              <div class="comments">
-                <%= form_for([post, post.comments.build]) do |f| %>
-                <p>
-                  <%= f.text_area :body, class: 'comment-form', placeholder: "Add a comment..." %>
-                  <%= f.submit :submit, class: "btn btn-primary btn-block btn-large", value: "Post" %>
-                <% end %>
-              </p>
+                <% commenter = user.name if user.id == comment.user_id %><% end %>
+                <b>
+                  <%= "#{commenter} 🗣 " %>
+                </b>
+                <%= comment.body %>
+                <i>
+                  <span id='timeago'>
+                    <%= "- #{time_ago_in_words(comment.created_at)} #{"ago"}" %>
+                  </span>
+                </i>
+                <br>
+
+              <% end %>
+
+              <br>
             </div>
+
+            <div class="comments">
+              <%= form_for([post, post.comments.build]) do |f| %>
+              <p>
+                <%= f.text_area :body, class: 'comment-form', placeholder: "Add a comment..." %>
+                <%= f.submit :submit, class: "btn btn-primary btn-block btn-large", value: "Post" %>
+              <% end %>
+            </p>
+          </div>
         </div>
       </div>
-    <% end %>
+      </div>
+    </div>
+  <% end %>
 
-  
   <script>
     hide_timeline()
   </script>
-  </body>
+</body>
