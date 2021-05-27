@@ -47,6 +47,7 @@ RSpec.feature "Likes are linked to users", type: :feature do
     #----------------------
 
     click_link "John Doe"
-    expect(current_path).to equal('/users/1')    
+    expect(page).to have_content('John Doe')    
+    expect(current_path.split('/')[1]).to eq('users')
   end
 end
