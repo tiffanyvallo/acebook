@@ -7,6 +7,6 @@ RSpec.feature "Registration", type: :feature do
 
     expect(page).to have_current_path('/login')
     expect(page).to have_content("Success: New Account Created")
-    expect(page).to have_content("Welcome to Acebook")
+    expect(page).to have_content("W E L C O M E T O A C E B O O K")
   end
 end

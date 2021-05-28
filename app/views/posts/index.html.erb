@@ -1,45 +1,36 @@
-<!DOCTYPE html>
-<html lang="en" class="light">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-  </head>
-  <body div="body">
-  
-    <label class="switch">
-      <div class="wrapper">
-        <div class="toggle">
-          <input class="toggle-input" type="checkbox"/>
-          <div class="toggle-bg"></div>
-          <div class="toggle-switch">
-            <div class="toggle-switch-figure"></div>
-            <div class="toggle-switch-figureAlt"></div>
-          </div>
+<body div="body">
+
+  <label class="switch">
+    <div class="wrapper">
+      <div class="toggle">
+        <input class="toggle-input" type="checkbox"/>
+        <div class="toggle-bg"></div>
+        <div class="toggle-switch">
+          <div class="toggle-switch-figure"></div>
+          <div class="toggle-switch-figureAlt"></div>
         </div>
       </div>
-    </label>
+    </div>
+  </label>
 
-    <%= yield %>
+  <%= yield %>
 
-</br>
-<% @posts.reverse.each do |post| %>
-</br>
+  <br>
+  <% @posts.reverse.each do |post| %>
+    <br>
 
-<br>
-<div class="posts">
-  <form action='/posts/<%= post.id %>/like'>
-    <fieldset>
-      <legend id='postname'>
-        <% @users.each do |user| %>
-        <div class="mini-avatar">
-          <% if user.id == post.user_id %>
-            <% if user.avatar.attached? %>
-              <%=image_tag(user.avatar) %>
-            <% else %>
-              <%=image_tag("default_avatar.png")%>
-            <% end %>
+    <br>
+    <div class="posts">
+      <form action='/posts/<%= post.id %>/like'>
+        <div class="card">
+          <div id='postname'>
+            <% @users.each do |user| %>
+              <% if user.id == post.user_id %>
+                <% if user.avatar.attached? %>
+                  <%=image_tag(user.avatar, :class => "post-avatar") %>
+                <% else %>
+                  <%=image_tag("default_avatar.png", :class => "post-avatar")%>
+                <% end %>
           <% end %>
         </div>
         <div class="poster-name-link">
@@ -52,37 +43,42 @@
         <% end %>
          <br>
             <i>
-                <span id='timeago'> <%= " posted #{time_ago_in_words(post.created_at)} #{"ago"}" %> </span>
-              </i>
-      </legend>
-      <div id='postcontent'>
-        <%= post.message %><br>
-        <% if post.image.attached? %>
-          <% post.image.each do |pic|%>
-            <img src="<%=(url_for(pic))%>" class="post-image">
-          <% end %>
-        <% end %>
-      </div>
-    </fieldset>
-    <br>
-      <!-- Edit post button, does not link yet, to review if we still want this -->
-      <% if false %>
-        <%= link_to 'Edit', edit_post_path(post) %>
-      <% end %>
-    </form>
-    <br>
-
-
-        <!--- check to see if cookies theme is correct for individual likes -->
-        <div class="likes">
-          <div id='postlikes'>
-            <%= link_to "❤️", post_likes_path(post), method: :post %>
-            <%= post.likes.count %> like<%= 's' if post.likes.count != 1 %>
+              <span class="timeago-posts" id='timeago'>
+                <%= " posted #{time_ago_in_words(post.created_at)} #{"ago"}" %>
+              </span>
+            </i>
           </div>
-          <div id='postcomments'>
-            <%= post.comments.count %> Comment<%= 's' if post.comments.count != 1 %><%= ':' if post.comments.count != 0 %>
+          <div id='postcontent'>
+            <%= post.message %><br>
+            <% if post.image.attached? %>
+              <% post.image.each do |pic|%>
+                <img src="<%=(url_for(pic))%>" class="post-image">
+              <% end %>
+            <% end %>
+          </div>
+          <br>
+          <!-- Edit post button, does not link yet, to review if we still want this -->
+          <% if false %>
+            <%= link_to 'Edit', edit_post_path(post) %>
+          <% end %>
+        </form>
+        <br>
+      
+      <!--- check to see if cookies theme is correct for individual likes -->
+      <div class="comments-likes-count">
+        <div class="likes">
+          <div class='postlikes'>
+            <%= link_to "❤️", post_likes_path(post), method: :post %>
+            <%= post.likes.count %>
+            like<%= 's' if post.likes.count != 1 %>
           </div>
         </div>
+        <div class='postcomments'>
+          <%= post.comments.count %>
+          comment<%= 's' if post.comments.count != 1 %><%= ':' if post.comments.count != 0 %>
+        </div>
+       </div> 
+<div class="info">
         <div class="display-comments">
           <% post.comments.each do |comment| %>
             <% commenter = 'anonymous' %>
@@ -105,24 +101,24 @@
               <br>
             <% end %>
             <br>
-        </div>
-        
-
-              <div class="comments">
-                <%= form_for([post, post.comments.build]) do |f| %>
-                <p>
-                  <%= f.text_area :body, class: 'comment-form', placeholder: "Add a comment..." %>
-                  <%= f.submit :submit, class: 'post-comment', value: "Post" %>
-                <% end %>
-              </p>
+        </div>  
+              <br>
             </div>
+            <div class="comments-form">
+              <%= form_for([post, post.comments.build]) do |f| %>
+            
+                <%= f.text_area :body, class: 'comment-textbox', placeholder: "Add a comment..." %>
+                <%= f.submit :submit, class: "btn btn-primary btn-block btn-large", value: "Post" %>
+              <% end %>
+          
+          </div>
         </div>
+      
       </div>
-    <% end %>
+    </div>
+  <% end %>
 
-  
   <script>
     hide_timeline()
   </script>
-  </body>
-</html>
+</body>
