@@ -31,12 +31,17 @@
                 <% else %>
                   <%=image_tag("default_avatar.png", :class => "post-avatar")%>
                 <% end %>
-              <% end %>
-              <div class="poster-name-link">
-                <%= user.name if user.id == post.user_id %>
-              </div>
+          <% end %>
+        </div>
+        <div class="poster-name-link">
+            <% if user.id == post.user_id %>
+            <% user_name = user.name  %>
+            <% user_id = user.id %>
             <% end %>
-            <br>
+            <a href='/users/<%=user_id%>'><%= user_name %></a>
+        </div>
+        <% end %>
+         <br>
             <i>
               <span class="timeago-posts" id='timeago'>
                 <%= " posted #{time_ago_in_words(post.created_at)} #{"ago"}" %>
@@ -78,21 +83,25 @@
           <% post.comments.each do |comment| %>
             <% commenter = 'anonymous' %>
               <% @users.each do |user| %>
-
-                <% commenter = user.name if user.id == comment.user_id %><% end %>
-                <b>
-                  <%= "#{commenter} 🗣 " %>
-                </b>
-                <%= comment.body %>
-                <i>
-                  <span id='timeago'>
-                    <%= "- #{time_ago_in_words(comment.created_at)} #{"ago"}" %>
-                  </span>
-                </i>
-                <br>
-
+                <% if user.id == comment.user_id %>
+                <% commenter = user.name %>
+                <% commenter_id = user.id %>
+                <a href='/users/<%=commenter_id%>'><%= commenter %></a>
+                🗣 <%= comment.body %>
+                <% end %>
+              <b>
+              </b>
               <% end %>
-      </div>    
+              <i>
+                <span id='timeago'> <%= "- #{time_ago_in_words(comment.created_at)} #{"ago"}" %> </span>
+                <% if current_user.id == comment.user_id %>
+                <p> <%= button_to "❌",[comment.post, comment], method: :delete, data: { confirm: "Are you sure" } %></p>
+                <% end %>
+              </i>
+              <br>
+            <% end %>
+            <br>
+        </div>  
               <br>
             </div>
             <div class="comments-form">
