@@ -98,7 +98,9 @@
               <% end %>
               <i>
                 <span id='timeago'> <%= "- #{time_ago_in_words(comment.created_at)} #{"ago"}" %> </span>
-                <p> <%= button_to "Delete Comment",[comment.post, comment], method: :delete, data: { confirm: "Are you sure" } %></p>
+                <% if current_user.id == comment.user_id %>
+                <p> <%= button_to "❌",[comment.post, comment], method: :delete, data: { confirm: "Are you sure" } %></p>
+                <% end %>
               </i>
               <br>
             <% end %>
