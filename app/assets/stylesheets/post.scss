@@ -169,11 +169,12 @@
   transform: scale(1);
 }
 
-#timeago {
+.timeago-posts {
   color: #666666;
   font-size: small;
   font-weight: lighter;
   margin-left: 12%;
+  vertical-align: 100%;
 }
   
 #postcontent {
@@ -193,6 +194,7 @@
   top: 7%;
   z-index: 7;
   position: absolute;
+  width: 100%;
   .post-avatar {
     display:inline-block;
     width: 60px;

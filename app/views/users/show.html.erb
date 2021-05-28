@@ -40,6 +40,8 @@
     <h3 class="bio"><%=@user.bio%></h3>
 <%# ----------- Posts ------------------- %>
 <%# Users personal posts %>
+<div class="posts">
+
 <div class="profile-posts"> 
   <% @posts.each do |post| %>
   <div class="posts-<%= cookies[:theme] %>">
@@ -79,7 +81,7 @@
   <script>
     hide_profile()
   </script>
-    
+ </div>   
   </body>
 </html>
 
